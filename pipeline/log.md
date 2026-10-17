@@ -8,3 +8,4 @@ One line per handoff: `<date> <ID or slug> <event>`. Newest at the bottom.
 2026-10-17 command-injection blocked: practical rewrite stopped by a safety filter; theory and CSV fixes applied, practical unchanged, waiting on owner
 2026-10-17 command-injection parked: practical rewrite needs a human author; pilot moved to threat-modelling
 2026-10-17 junior-penetration-testing-path skipped for now (owner decision); Path QA limited to security-engineer-path
+2026-10-17 threat-modelling audit ready, fix brief needed

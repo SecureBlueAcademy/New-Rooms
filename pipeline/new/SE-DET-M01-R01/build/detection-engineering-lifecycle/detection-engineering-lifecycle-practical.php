@@ -593,10 +593,11 @@ table.data td .sel { min-width: 110px; padding: 5px 8px; }
         var h = '<thead><tr><th>Hostname</th><th>IP</th><th>OS</th><th>Build / patch level</th></tr></thead><tbody>';
         INVENTORY.forEach(function (r) { h += '<tr><td>' + esc(r[0]) + '</td><td>' + esc(r[1]) + '</td><td>' + esc(r[2]) + '</td><td class="wrapcell">' + esc(r[3]) + '</td></tr>'; });
         $('inv-table').innerHTML = h + '</tbody>';
-        var t = '<thead><tr><th>ID</th><th>UtcTime</th><th>Computer</th><th>CommandLine</th><th>Expected</th></tr></thead><tbody>';
+        var t = '<thead><tr><th>ID</th><th>Expected</th><th>UtcTime</th><th>Computer</th><th>CommandLine</th></tr></thead><tbody>';
         TEST.forEach(function (r) {
-            t += '<tr><td>' + esc(r.id) + '</td><td>' + esc(r.UtcTime) + '</td><td>' + esc(r.Computer) + '</td><td class="wrapcell">' + esc(r.CommandLine) + '</td>' +
-                '<td><select class="sel" id="exp-' + r.id + '" data-tc="' + r.id + '"><option value=""></option><option value="Alert">Alert</option><option value="No alert">No alert</option></select></td></tr>';
+            t += '<tr><td>' + esc(r.id) + '</td>' +
+                '<td><select class="sel" id="exp-' + r.id + '" data-tc="' + r.id + '" aria-label="Expected result for ' + r.id + '"><option value=""></option><option value="Alert">Alert</option><option value="No alert">No alert</option></select></td>' +
+                '<td>' + esc(r.UtcTime) + '</td><td>' + esc(r.Computer) + '</td><td class="wrapcell">' + esc(r.CommandLine) + '</td></tr>';
         });
         $('tc-table').innerHTML = t + '</tbody>';
         TEST.forEach(function (r) {
@@ -754,7 +755,7 @@ table.data td .sel { min-width: 110px; padding: 5px 8px; }
     function renderShadow() {
         var box = $('shadow-results');
         if (!state.shadowMatches) { box.innerHTML = ''; return; }
-        box.innerHTML = '<div class="section-label" style="margin-top:12px">Shadow results: ' + state.shadowMatches.length + ' matches</div><div id="shadow-table"></div>';
+        box.innerHTML = '<div class="section-label" style="margin-top:12px">Shadow results: ' + state.shadowMatches.length + (state.shadowMatches.length === 1 ? ' match' : ' matches') + '</div><div id="shadow-table"></div>';
         renderPaged($('shadow-table'), state.shadowMatches, SHADOW_COLS, shadowPage, 'Row');
     }
     $('btn-deploy').addEventListener('click', function () {
@@ -875,7 +876,10 @@ table.data td .sel { min-width: 110px; padding: 5px 8px; }
         var bt, bl;
         if (vw < 700) {
             bl = m; box.style.width = (vw - 2 * m) + 'px'; bh = box.offsetHeight;
-            bt = vh - bh - m;
+            // bottom by default; move to the top when that hides less of the highlighted area
+            var overlapBottom = Math.max(0, bottom - (vh - bh - m));
+            var overlapTop = Math.max(0, (bh + m) - top);
+            bt = overlapTop < overlapBottom ? m : vh - bh - m;
         } else if (bottom + m + bh <= vh - m) {
             bt = bottom + m; bl = Math.min(Math.max(m, left), vw - bw - m);
         } else if (top - m - bh >= m) {
