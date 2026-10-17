@@ -1,5 +1,5 @@
 Room ID,Track,Module,Room Title,Slug,Type,Status,Updated,Notes
-SE-DET-M01-R01,Detection Engineering & SOC Analytics,Detection Engineering Core,Detection Engineering Lifecycle,detection-engineering-lifecycle,Learning,Planned,,
+SE-DET-M01-R01,Detection Engineering & SOC Analytics,Detection Engineering Core,Detection Engineering Lifecycle,detection-engineering-lifecycle,Learning,In Creation,2026-10-17,Packet approved 2026-10-17; flag CBX{promote_detection}
 SE-DET-M01-R02,Detection Engineering & SOC Analytics,Detection Engineering Core,Writing Effective Sigma Rules,writing-effective-sigma-rules,Learning,Planned,,
 SE-DET-M01-R03,Detection Engineering & SOC Analytics,Detection Engineering Core,Atomic Red Team for Detection Validation,atomic-red-team-for-detection-validation,Learning,Planned,,
 SE-DET-M01-R04,Detection Engineering & SOC Analytics,Detection Engineering Core,False Positive Tuning Methodology,false-positive-tuning-methodology,Learning,Planned,,
