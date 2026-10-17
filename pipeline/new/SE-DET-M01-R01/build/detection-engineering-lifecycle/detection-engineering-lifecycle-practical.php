@@ -23,7 +23,7 @@ $page_title = 'Detection Spec Workbench';
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { background: var(--bg-primary); }
 body { color: var(--text-primary); font-family: "Inter", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; overflow-x: hidden; }
-html.tutorial-active, body.tutorial-active { overflow: hidden; }
+html.scroll-locked, body.scroll-locked { overflow: hidden; }
 code, pre, .mono { font-family: "JetBrains Mono", monospace; }
 .wrap { max-width: 1280px; margin: 0 auto; padding: 24px 20px 80px; }
 .page-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding: 22px 24px;
@@ -125,7 +125,7 @@ table.data td .sel { min-width: 110px; padding: 5px 8px; }
     box-shadow: 0 0 0 200vmax rgba(5,8,16,0.78), var(--glow-accent); pointer-events: none; transition: all .18s ease; }
 #tutorial-box { position: fixed; z-index: 902; display: none; width: 380px; max-width: calc(100vw - 24px); background: var(--bg-secondary);
     border: 1px solid var(--accent-primary); border-radius: 14px; padding: 18px; box-shadow: 0 10px 40px rgba(0,0,0,0.6); }
-.tutorial-on #tutorial-overlay, .tutorial-on #tutorial-spotlight, .tutorial-on #tutorial-box { display: block; }
+.guide-open #tutorial-overlay, .guide-open #tutorial-spotlight, .guide-open #tutorial-box { display: block; }
 #tutorial-box h3 { color: var(--accent-primary); font-size: 1.02rem; margin-bottom: 6px; }
 #tutorial-box .tut-step { font-size: 0.75rem; color: var(--text-muted); margin-bottom: 4px; }
 #tut-text { color: var(--text-secondary); font-size: 0.9rem; max-height: 34vh; overflow-y: auto; }
@@ -910,9 +910,9 @@ table.data td .sel { min-width: 110px; padding: 5px 8px; }
     function showTut(on) {
         if (on === tutOpen) { if (on) drawTut(); return; }
         tutOpen = on;
-        document.documentElement.classList.toggle('tutorial-active', on);
-        document.body.classList.toggle('tutorial-active', on);
-        document.body.classList.toggle('tutorial-on', on);
+        document.documentElement.classList.toggle('scroll-locked', on);
+        document.body.classList.toggle('scroll-locked', on);
+        document.body.classList.toggle('guide-open', on);
         if (on) { tabBefore = activeTab(); drawTut(); }
         else {
             try { localStorage.setItem(TUTORIAL_KEY, '1'); } catch (e) {}
