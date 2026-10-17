@@ -1,0 +1,14 @@
+task1,q0,yes
+task2,q1,IaaS
+task2,q2,SaaS
+task2,q3,Data
+task3,q4,Landing zone
+task3,q5,Management account
+task3,q6,Segmentation
+task4,q7,Hub-and-spoke
+task4,q8,Transit gateway
+task4,q9,Full mesh
+task5,q10,Log archive account
+task5,q11,Non-repudiation
+task6,q12,CBX{landing_zone_deployed}
+task7,q13,complete

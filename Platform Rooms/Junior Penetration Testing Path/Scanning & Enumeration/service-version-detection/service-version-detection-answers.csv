@@ -1,0 +1,11 @@
+task1,q0,yes
+task2,q1,fingerprinting
+task2,q2,version number
+task3,q3,banner
+task3,q4,banner grabbing
+task4,q5,-sV
+task4,q6,signatures
+task5,q7,version
+task5,q8,outdated
+task6,q9,CBX{backdoor_identified}
+task7,q10,complete

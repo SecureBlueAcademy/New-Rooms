@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,Cross-Site Scripting
+task2,q2,injection
+task2,q3,same-origin policy
+task3,q4,non-persistent XSS
+task3,q5,malicious link
+task4,q6,persistent XSS
+task4,q7,database
+task5,q8,client-side
+task5,q9,session cookie
+task5,q10,redirect
+task6,q11,CBX{cookie_exfiltrated}
+task7,q12,complete

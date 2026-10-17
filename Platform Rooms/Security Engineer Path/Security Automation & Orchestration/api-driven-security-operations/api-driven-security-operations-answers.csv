@@ -1,0 +1,16 @@
+# api-driven-security-operations-answers.csv
+task1,q0,yes
+task2,q1,client credentials
+task2,q2,authorization
+task2,q3,vault
+task3,q4,JSON
+task3,q5,defensive programming
+task4,q6,enrichment
+task4,q7,threat intelligence
+task5,q8,webhook
+task5,q9,polling
+task5,q10,signature verification
+task6,q11,circuit breaker
+task6,q12,fallback
+task7,q13,CBX{playbook_executed}
+task8,q14,complete

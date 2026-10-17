@@ -1,0 +1,14 @@
+taskX,qY,answer
+task1,q0,yes
+task2,q1,Principal
+task2,q2,blast radius
+task3,q3,privilege escalation
+task3,q4,AttachUserPolicy
+task4,q5,PassRole
+task4,q6,AssumeRole
+task5,q7,ExternalId
+task5,q8,confused deputy
+task6,q9,workload identity
+task6,q10,instance profile
+task7,q11,CBX{least_privilege_enforced}
+task8,q12,complete

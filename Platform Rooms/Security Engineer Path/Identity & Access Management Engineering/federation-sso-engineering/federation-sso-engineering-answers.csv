@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,Identity Provider
+task2,q2,Service Provider
+task3,q3,Assertion
+task3,q4,NotOnOrAfter
+task4,q5,Authorization
+task4,q6,PKCE
+task5,q7,ID Token
+task5,q8,aud
+task6,q9,Assertion Consumer Service
+task6,q10,IdP-initiated SSO
+task7,q11,XML Signature Wrapping
+task7,q12,Audience Restriction
+task8,q13,CBX{forgery_detected}
+task9,q14,complete

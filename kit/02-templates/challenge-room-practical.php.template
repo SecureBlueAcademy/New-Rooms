@@ -1,0 +1,341 @@
+<?php
+// {{SLUG}}-practical.php
+// CHALLENGE ROOM PRACTICAL TEMPLATE: multi-panel log analyser (one self-contained file).
+// Browser-only PHP simulation: all evidence is embedded as JS arrays. Real rooms are large
+// because they carry realistic data volume (about 48 to 61 KB in output/). Replace every {{PLACEHOLDER}}.
+// Hard rules (see 03-docs/04-room-qa.md):
+//  - Raw fields only. No notes/label columns, no label-like ids, no hint sentences, no words such as
+//    exploit, attack, malicious, payload, evil in data.
+//  - Every key event has a benign decoy. No single filter or search reveals an answer.
+//  - Lists sorted by time, paginated with full navigation, never capped.
+//  - Inventory graph shows inventory only (no session/logon edges). Hostnames carry no role words.
+//  - Console: proof fields + shuffled ordered plan with trap steps and Reset. Wrong = plain "Not yet."
+//  - Flag sealed with seal_flag.py. No em dashes. Responsive.
+$page_title = '{{PRACTICAL_TOOL_NAME}}';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><?= htmlspecialchars($page_title) ?></title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-primary: #0b0f1a; --bg-secondary: #12182b; --bg-surface: #161d36;
+    --text-primary: #e6e9f2; --text-secondary: #aab0d6; --text-muted: #7c83b6;
+    --accent-primary: #6ae3ff; --accent-secondary: #8b7bff;
+    --success: #3dff9a; --error: #ff5c5c; --border-default: rgba(255,255,255,0.08);
+    --glow-accent: 0 0 12px rgba(106,227,255,0.35);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg-primary); color: var(--text-primary); font-family: "Inter", system-ui, sans-serif; line-height: 1.6; }
+html.tutorial-active, body.tutorial-active { overflow: hidden; }
+.mono, code { font-family: "JetBrains Mono", monospace; }
+.wrap { max-width: 1280px; margin: 0 auto; padding: 24px 20px 80px; }
+.page-header { display: flex; justify-content: space-between; gap: 20px; padding: 22px 24px; background: linear-gradient(135deg, var(--bg-secondary), var(--bg-surface));
+    border: 1px solid var(--border-default); border-radius: 14px; margin-bottom: 20px; }
+.page-header h1 { font-size: 1.6rem; color: var(--accent-primary); }
+.page-header p { color: var(--text-secondary); font-size: .95rem; }
+.btn, .btn-tutorial { background: transparent; color: var(--accent-primary); border: 1px solid var(--accent-primary); border-radius: 8px; padding: 8px 14px; font: 600 .88rem "Inter", sans-serif; cursor: pointer; }
+.btn:hover, .btn:focus-visible, .btn-tutorial:hover { box-shadow: var(--glow-accent); outline: none; }
+.btn-primary { background: var(--accent-primary); color: var(--bg-primary); }
+.card { background: var(--bg-secondary); border: 1px solid var(--border-default); border-radius: 14px; padding: 20px 22px; margin-bottom: 20px; }
+.section-label { font-size: .72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); font-weight: 600; margin-bottom: 8px; }
+.tabs { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 14px; }
+.tab-btn { background: var(--bg-surface); color: var(--text-secondary); border: 1px solid var(--border-default); border-radius: 8px; padding: 8px 13px; font: 500 .86rem "Inter", sans-serif; cursor: pointer; }
+.tab-btn.active { background: var(--accent-primary); color: var(--bg-primary); font-weight: 600; }
+.tab-btn .tick { display: none; margin-left: 6px; }
+.tab-btn.visited .tick { display: inline; }
+.panel { display: none; background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: 12px; padding: 18px; }
+.panel.active { display: block; }
+.panel h3 { font-size: 1rem; color: var(--accent-primary); margin-bottom: 8px; }
+.filters { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 10px; }
+.inp { background: #070a14; color: var(--text-primary); border: 1px solid var(--border-default); border-radius: 8px; padding: 7px 10px; font: 500 .85rem "JetBrains Mono", monospace; }
+.field { display: flex; flex-direction: column; gap: 4px; font-size: .8rem; color: var(--text-muted); }
+.note { font-size: .82rem; color: var(--text-muted); }
+.evt-wrap { overflow-x: auto; }
+table.evt { width: 100%; border-collapse: collapse; font: .78rem "JetBrains Mono", monospace; }
+table.evt th { text-align: left; color: var(--text-muted); padding: 7px 9px; border-bottom: 1px solid var(--border-default); white-space: nowrap; }
+table.evt td { padding: 7px 9px; border-bottom: 1px solid var(--border-default); color: var(--text-secondary); white-space: nowrap; }
+.pager { display: flex; align-items: center; gap: 6px; margin-top: 10px; flex-wrap: wrap; font-size: .82rem; color: var(--text-muted); }
+.pager button { padding: 4px 10px; }
+pre.tree { font: .8rem "JetBrains Mono", monospace; color: #cfd6f5; white-space: pre; overflow-x: auto; }
+.plan-list { list-style: none; counter-reset: s; margin: 8px 0; }
+.plan-list li { counter-increment: s; padding: 7px 10px; margin-bottom: 6px; background: #070a14; border: 1px solid var(--border-default); border-radius: 8px; font-size: .85rem; display: flex; justify-content: space-between; gap: 8px; }
+.plan-list li::before { content: counter(s) ". "; color: var(--accent-secondary); }
+.plan-list li span { flex: 1; }
+.pool .step-btn { display: block; width: 100%; text-align: left; margin-bottom: 6px; }
+.console-grid { display: grid; grid-template-columns: minmax(0,1fr) minmax(0,1fr); gap: 18px; }
+@media (max-width: 900px) { .console-grid { grid-template-columns: 1fr; } .page-header { flex-direction: column; } }
+#flag-area { display: none; margin-top: 12px; padding: 12px; border: 1px solid var(--success); border-radius: 10px; }
+#flag-area.show { display: block; }
+#flag-output { color: var(--success); font: 700 1.05rem "JetBrains Mono", monospace; }
+#tutorial { position: fixed; inset: 0; background: rgba(5,8,16,.82); display: none; align-items: center; justify-content: center; z-index: 50; padding: 20px; }
+#tutorial.show { display: flex; }
+.tut-box { max-width: 540px; width: 100%; background: var(--bg-secondary); border: 1px solid var(--accent-primary); border-radius: 14px; padding: 22px; }
+.tut-nav { display: flex; justify-content: space-between; margin-top: 14px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <header class="page-header">
+        <div>
+            <h1>{{PRACTICAL_TOOL_NAME}}</h1>
+            <p>{{ONE_LINE_TOOL_DESCRIPTION}}</p>
+        </div>
+        <button type="button" class="btn-tutorial" id="btn-tutorial">View Tutorial</button>
+    </header>
+
+    <section class="card">
+        <div class="section-label">Mission briefing</div>
+        <p>{{CASE_BRIEF: ticket id, date, what was noticed, what evidence was collected. All times are UTC.}}</p>
+    </section>
+
+    <!-- TABS: one per evidence source. Add or remove buttons and panels in pairs. -->
+    <div class="tabs" id="tabs" role="tablist">
+        <button type="button" class="tab-btn active" data-panel="brief" role="tab">Case Brief<span class="tick">&#10003;</span></button>
+        <button type="button" class="tab-btn" data-panel="src1" role="tab">{{LOG_SOURCE_1_NAME}}<span class="tick">&#10003;</span></button>
+        <button type="button" class="tab-btn" data-panel="src2" role="tab">{{LOG_SOURCE_2_NAME}}<span class="tick">&#10003;</span></button>
+        <button type="button" class="tab-btn" data-panel="inv" role="tab">Host Inventory<span class="tick">&#10003;</span></button>
+        <button type="button" class="tab-btn" data-panel="graph" role="tab">{{INVENTORY_GRAPH_NAME}}<span class="tick">&#10003;</span></button>
+        <button type="button" class="tab-btn" data-panel="console" role="tab">Console<span class="tick">&#10003;</span></button>
+    </div>
+
+    <section class="panel active" id="panel-brief">
+        <h3>Case Brief</h3>
+        <p class="note">{{BRIEF_DETAIL: hosts in scope, evidence list, response rules that the console grades}}</p>
+    </section>
+
+    <section class="panel" id="panel-src1">
+        <h3>{{LOG_SOURCE_1_NAME}}</h3>
+        <p class="note">Sorted by time.</p>
+        <div class="filters" data-table="src1">
+            <label class="field">Host<input class="inp" data-col="host" placeholder="hostname" size="14"></label>
+            <label class="field">{{FILTER_FIELD_2}}<input class="inp" data-col="{{COLUMN_KEY_2}}" size="14"></label>
+            <label class="field">{{FILTER_FIELD_3}}<input class="inp" data-col="{{COLUMN_KEY_3}}" size="14"></label>
+        </div>
+        <p class="note" id="count-src1"></p>
+        <div class="evt-wrap"><table class="evt"><thead id="head-src1"></thead><tbody id="body-src1"></tbody></table></div>
+        <div class="pager" id="pager-src1"></div>
+    </section>
+
+    <section class="panel" id="panel-src2">
+        <h3>{{LOG_SOURCE_2_NAME}}</h3>
+        <p class="note">Sorted by time.</p>
+        <div class="filters" data-table="src2">
+            <label class="field">Host<input class="inp" data-col="host" size="14"></label>
+            <label class="field">{{FILTER_FIELD}}<input class="inp" data-col="{{COLUMN_KEY}}" size="14"></label>
+        </div>
+        <p class="note" id="count-src2"></p>
+        <div class="evt-wrap"><table class="evt"><thead id="head-src2"></thead><tbody id="body-src2"></tbody></table></div>
+        <div class="pager" id="pager-src2"></div>
+    </section>
+
+    <section class="panel" id="panel-inv">
+        <h3>Host Inventory</h3>
+        <div class="evt-wrap"><table class="evt"><thead id="head-inv"></thead><tbody id="body-inv"></tbody></table></div>
+        <div class="pager" id="pager-inv"></div>
+    </section>
+
+    <section class="panel" id="panel-graph">
+        <h3>{{INVENTORY_GRAPH_NAME}} (read-only)</h3>
+        <p class="note">Inventory only: groups, hosts and OU membership.</p>
+        <pre class="tree">{{INVENTORY_TREE e.g.
+cbx.lab
+ ├─ OU=Servers
+ │   ├─ srv01
+ │   └─ srv02
+ └─ OU=Workstations
+     └─ ws41}}</pre>
+    </section>
+
+    <section class="panel" id="panel-console">
+        <h3>Response Console</h3>
+        <div class="console-grid">
+            <div>
+                <div class="section-label">Proof</div>
+                <label class="field">{{PROOF_1_LABEL}}<input class="inp proof" id="p1" autocomplete="off"></label>
+                <label class="field">{{PROOF_2_LABEL}}<input class="inp proof" id="p2" autocomplete="off"></label>
+                <label class="field">{{PROOF_3_LABEL}}<input class="inp proof" id="p3" autocomplete="off"></label>
+                <label class="field">{{PROOF_4_LABEL}}<input class="inp proof" id="p4" autocomplete="off"></label>
+            </div>
+            <div>
+                <div class="section-label">Available steps (click to add)</div>
+                <div class="pool" id="pool"></div>
+                <div class="section-label" style="margin-top:10px">Your plan</div>
+                <ol class="plan-list" id="plan"></ol>
+            </div>
+        </div>
+        <div style="display:flex;gap:8px;margin-top:10px;flex-wrap:wrap">
+            <button type="button" class="btn btn-primary" id="btn-submit">Submit proof and plan</button>
+            <button type="button" class="btn" id="btn-reset">Reset</button>
+        </div>
+        <p id="feedback" style="margin-top:10px"></p>
+        <div id="flag-area"><div class="section-label">Flag</div><div id="flag-output"></div></div>
+    </section>
+</div>
+
+<div id="tutorial" role="dialog" aria-modal="true">
+    <div class="tut-box">
+        <h3 id="tut-title" style="color:var(--accent-primary)"></h3>
+        <p id="tut-text" style="color:var(--text-secondary)"></p>
+        <div class="tut-nav"><button type="button" class="btn" id="tut-prev">Back</button><button type="button" class="btn btn-primary" id="tut-next">Next</button></div>
+    </div>
+</div>
+
+<script>
+(function () {
+    'use strict';
+    var $ = function (id) { return document.getElementById(id); };
+    var PAGE_SIZE = 25;
+
+    // ===== EVIDENCE (synthetic). Raw fields only. Sorted by time. Include decoys for every key event. =====
+    var TABLES = {
+        src1: {
+            cols: [['ts', 'ts'], ['host', 'host'], ['{{COLUMN_KEY_2}}', '{{COLUMN_LABEL_2}}'], ['{{COLUMN_KEY_3}}', '{{COLUMN_LABEL_3}}']],
+            rows: [
+                // { ts: '2026-10-14 02:16:55', host: 'srv01', ... }
+            ]
+        },
+        src2: {
+            cols: [['ts', 'ts'], ['host', 'host'], ['{{COLUMN_KEY}}', '{{COLUMN_LABEL}}']],
+            rows: []
+        },
+        inv: {
+            cols: [['host', 'Host'], ['ip', 'IP'], ['os', 'OS'], ['build', 'Build / patch level']],
+            rows: [
+                // { host: 'srv01', ip: '10.x.x.x', os: 'Windows Server 2019', build: '17763.xxxx' }
+            ]
+        }
+    };
+
+    // ===== CONSOLE (ordered plan). Groups = graded order boundaries taught in the brief.
+    // Steps inside one group are accepted in any order. Traps keep the flag locked. =====
+    var STEPS = [
+        { id: 's1', text: '{{EVIDENCE_COLLECTION_STEP}}' },
+        { id: 's2', text: '{{CONTAIN_STEP_A}}' },
+        { id: 's3', text: '{{CONTAIN_STEP_B}}' },
+        { id: 's4', text: '{{ERADICATE_STEP}}' },
+        { id: 's5', text: '{{RECOVER_AND_MONITOR_STEP}}' },
+        { id: 't1', text: '{{TRAP_STEP_1 e.g. delete the file before export}}' },
+        { id: 't2', text: '{{TRAP_STEP_2 e.g. reboot before memory capture}}' }
+    ];
+    var GROUPS = [['s1'], ['s2', 's3'], ['s4'], ['s5']];
+    var CHECK_HASH = '{{CHECK_HASH_FROM_seal_flag.py}}';         // key = proof fields p1|p2|p3|p4 normalised
+    var SEALED_FLAG_HEX = '{{SEALED_FLAG_HEX_FROM_seal_flag.py}}';
+    var TUTORIAL_KEY = '{{SLUG_UNDERSCORED}}_tutorial_seen';
+    var TUTORIAL = [
+        { t: 'Welcome', x: '{{TUTORIAL_1: what the analyser holds}}' },
+        { t: 'Tabs and filters', x: '{{TUTORIAL_2: each tab is one evidence source; filters combine; pages}}' },
+        { t: 'Console', x: '{{TUTORIAL_3: proof fields, building the plan, Reset}}' }
+    ];
+
+    // ===== FLAG SEAL (do not edit) =====
+    function cyrb53(str, seed) {
+        var h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+        for (var i = 0; i < str.length; i++) { var ch = str.charCodeAt(i); h1 = Math.imul(h1 ^ ch, 2654435761); h2 = Math.imul(h2 ^ ch, 1597334677); }
+        h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+        h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+        return 4294967296 * (2097151 & h2) + (h1 >>> 0);
+    }
+    function norm(s) { return String(s).trim().toLowerCase().split(/\s+/).join(' '); }
+    function unseal(hex, key) { var o = ''; for (var i = 0; i < hex.length; i += 2) o += String.fromCharCode(parseInt(hex.substr(i, 2), 16) ^ (cyrb53(key, i / 2) % 256)); return o; }
+
+    // ===== TABLE RENDERING with filters and full pagination (never capped) =====
+    var state = {};
+    function esc(s) { return String(s == null ? '' : s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+    function filtered(name) {
+        var f = state[name].filters;
+        return TABLES[name].rows.filter(function (r) {
+            return Object.keys(f).every(function (k) { return !f[k] || String(r[k] || '').toLowerCase().indexOf(f[k].toLowerCase()) !== -1; });
+        });
+    }
+    function render(name) {
+        var t = TABLES[name], st = state[name], rows = filtered(name);
+        var pages = Math.max(1, Math.ceil(rows.length / PAGE_SIZE));
+        if (st.page >= pages) st.page = pages - 1;
+        $('head-' + name).innerHTML = '<tr>' + t.cols.map(function (c) { return '<th>' + esc(c[1]) + '</th>'; }).join('') + '</tr>';
+        $('body-' + name).innerHTML = rows.slice(st.page * PAGE_SIZE, (st.page + 1) * PAGE_SIZE).map(function (r) {
+            return '<tr>' + t.cols.map(function (c) { return '<td>' + esc(r[c[0]]) + '</td>'; }).join('') + '</tr>';
+        }).join('');
+        if ($('count-' + name)) $('count-' + name).textContent = rows.length + ' rows';
+        var p = $('pager-' + name); p.innerHTML = '';
+        [['First', 0], ['Prev', st.page - 1], ['Next', st.page + 1], ['Last', pages - 1]].forEach(function (b) {
+            var btn = document.createElement('button'); btn.type = 'button'; btn.className = 'btn'; btn.textContent = b[0];
+            btn.disabled = b[1] < 0 || b[1] >= pages || b[1] === st.page;
+            btn.addEventListener('click', function () { st.page = b[1]; render(name); }); p.appendChild(btn);
+        });
+        var lbl = document.createElement('span'); lbl.textContent = 'Page ' + (st.page + 1) + ' of ' + pages; p.appendChild(lbl);
+    }
+    Object.keys(TABLES).forEach(function (name) { state[name] = { page: 0, filters: {} }; render(name); });
+    document.querySelectorAll('.filters').forEach(function (fb) {
+        var name = fb.dataset.table;
+        fb.querySelectorAll('input').forEach(function (inp) {
+            inp.addEventListener('input', function () { state[name].filters[inp.dataset.col] = inp.value.trim(); state[name].page = 0; render(name); });
+        });
+    });
+
+    // ===== TABS =====
+    document.querySelectorAll('.tab-btn').forEach(function (b) {
+        b.addEventListener('click', function () {
+            document.querySelectorAll('.tab-btn').forEach(function (x) { x.classList.remove('active'); });
+            document.querySelectorAll('.panel').forEach(function (x) { x.classList.remove('active'); });
+            b.classList.add('active', 'visited'); $('panel-' + b.dataset.panel).classList.add('active');
+        });
+    });
+
+    // ===== CONSOLE =====
+    var plan = [];
+    function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+    var order = shuffle(STEPS.slice());
+    function drawConsole() {
+        $('pool').innerHTML = ''; $('plan').innerHTML = '';
+        order.forEach(function (s) {
+            if (plan.indexOf(s.id) !== -1) return;
+            var b = document.createElement('button'); b.type = 'button'; b.className = 'btn step-btn'; b.textContent = s.text;
+            b.addEventListener('click', function () { plan.push(s.id); drawConsole(); }); $('pool').appendChild(b);
+        });
+        plan.forEach(function (id, i) {
+            var s = STEPS.filter(function (x) { return x.id === id; })[0];
+            var li = document.createElement('li'); li.innerHTML = '<span></span>'; li.firstChild.textContent = s.text;
+            var rm = document.createElement('button'); rm.type = 'button'; rm.className = 'btn'; rm.textContent = 'Remove';
+            rm.addEventListener('click', function () { plan.splice(i, 1); drawConsole(); }); li.appendChild(rm); $('plan').appendChild(li);
+        });
+    }
+    function planOk() {
+        var need = [].concat.apply([], GROUPS);
+        if (plan.length !== need.length) return false;
+        var pos = 0;
+        return GROUPS.every(function (g) { var chunk = plan.slice(pos, pos + g.length); pos += g.length; return g.every(function (id) { return chunk.indexOf(id) !== -1; }); });
+    }
+    $('btn-submit').addEventListener('click', function () {
+        var key = ['p1', 'p2', 'p3', 'p4'].map(function (id) { return norm($(id).value); }).join('|');
+        if (cyrb53(key, 7).toString(16) !== CHECK_HASH || !planOk()) { $('feedback').textContent = 'Not yet.'; $('feedback').style.color = 'var(--error)'; return; }
+        $('feedback').textContent = 'Accepted.'; $('feedback').style.color = 'var(--success)';
+        $('flag-output').textContent = unseal(SEALED_FLAG_HEX, key); $('flag-area').classList.add('show');
+    });
+    $('btn-reset').addEventListener('click', function () {
+        plan = []; order = shuffle(STEPS.slice()); drawConsole();
+        document.querySelectorAll('.proof').forEach(function (i) { i.value = ''; });
+        $('feedback').textContent = ''; $('flag-area').classList.remove('show'); $('flag-output').textContent = '';
+    });
+    drawConsole();
+
+    // ===== TUTORIAL =====
+    var tStep = 0;
+    function drawTut() { $('tut-title').textContent = TUTORIAL[tStep].t; $('tut-text').textContent = TUTORIAL[tStep].x; $('tut-prev').disabled = tStep === 0; $('tut-next').textContent = tStep === TUTORIAL.length - 1 ? 'Finish' : 'Next'; }
+    function showTut(on) {
+        $('tutorial').classList.toggle('show', on); document.documentElement.classList.toggle('tutorial-active', on); document.body.classList.toggle('tutorial-active', on);
+        if (on) drawTut(); else { try { localStorage.setItem(TUTORIAL_KEY, '1'); } catch (e) {} }
+    }
+    $('tut-prev').addEventListener('click', function () { if (tStep > 0) { tStep--; drawTut(); } });
+    $('tut-next').addEventListener('click', function () { if (tStep < TUTORIAL.length - 1) { tStep++; drawTut(); } else showTut(false); });
+    $('btn-tutorial').addEventListener('click', function () { tStep = 0; showTut(true); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') showTut(false); });
+    var seen = false; try { seen = localStorage.getItem(TUTORIAL_KEY) === '1'; } catch (e) {}
+    if (!seen) showTut(true);
+})();
+</script>
+</body>
+</html>

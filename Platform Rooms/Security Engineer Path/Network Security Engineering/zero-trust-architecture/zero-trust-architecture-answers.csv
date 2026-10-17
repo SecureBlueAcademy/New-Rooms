@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,lateral movement
+task2,q2,verify explicitly
+task2,q3,castle-and-moat
+task3,q4,PDP
+task3,q5,PEP
+task3,q6,800-207
+task4,q7,microsegmentation
+task4,q8,software-defined perimeter
+task5,q9,identity-aware proxy
+task5,q10,continuous verification
+task6,q11,least privilege
+task6,q12,asset inventory
+task7,q13,CBX{trust_nothing_verify_everything}
+task8,q14,complete

@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,control
+task2,q2,evidence
+task2,q3,many-to-many
+task3,q4,crosswalk
+task3,q5,ISO 27001
+task3,q6,CIS Controls
+task4,q7,controls matrix
+task4,q8,living document
+task5,q9,design
+task5,q10,finding
+task6,q11,CBX{matrix_mapped}
+task7,q12,complete

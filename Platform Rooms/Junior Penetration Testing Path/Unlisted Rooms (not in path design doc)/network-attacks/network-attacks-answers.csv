@@ -1,0 +1,10 @@
+task1,q0,yes
+task2,q1,203.0.113.77
+task2,q2,SYN scan
+task2,q3,8
+task2,q4,svc_backup
+task2,q5,3389
+task2,q6,RDP
+task2,q7,FW-114
+task2,q8,CBX{intrusion_traced}
+task3,q9,complete

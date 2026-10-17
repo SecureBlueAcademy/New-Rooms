@@ -1,0 +1,14 @@
+# security-design-patterns-answers.csv
+task1,q0,yes
+task2,q1,Secure Gateway
+task2,q2,Rate limiting
+task3,q3,Broker Pattern
+task3,q4,Tightly coupled
+task4,q5,Intercepting Validator
+task4,q6,Injection
+task5,q7,Single Access Point
+task5,q8,SSO
+task6,q9,Full Interception
+task6,q10,Backdoor
+task7,q11,CBX{blueprint_secured}
+task8,q12,complete

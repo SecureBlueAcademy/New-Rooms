@@ -1,0 +1,12 @@
+task1,q0,yes
+task2,q1,passive reconnaissance
+task2,q2,active reconnaissance
+task2,q3,banners
+task3,q4,product
+task3,q5,port
+task4,q6,fingerprinting
+task4,q7,honeypot
+task5,q8,Common Vulnerabilities and Exposures
+task5,q9,vuln
+task6,q10,CBX{database_exposed}
+task7,q11,complete

@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,ServerKeyExchange
+task2,q2,forward secrecy
+task3,q3,root certificate
+task3,q4,intermediate certificate
+task4,q5,client certificate
+task4,q6,zero trust
+task5,q7,HSTS
+task5,q8,HPKP
+task6,q9,OCSP
+task6,q10,OCSP stapling
+task7,q11,POODLE
+task7,q12,TLS_FALLBACK_SCSV
+task8,q13,CBX{handshake_decoded}
+task9,q14,complete

@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,Open Source Intelligence
+task2,q2,Passive reconnaissance
+task2,q3,Active reconnaissance
+task3,q4,LinkedIn
+task3,q5,Pretexting
+task4,q6,Hardcoded secrets
+task4,q7,GitHub dorking
+task4,q8,Git history
+task5,q9,Tech stack
+task5,q10,Internal tool names
+task6,q11,Credential stuffing
+task6,q12,Password reuse
+task7,q13,CBX{repo_secret_exposed}
+task8,q14,complete

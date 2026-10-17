@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,whois privacy
+task2,q2,registrar
+task2,q3,expiry date
+task3,q4,A record
+task3,q5,MX record
+task3,q6,TXT record
+task4,q7,authoritative transfer
+task4,q8,zone transfer
+task4,q9,internal hostnames
+task5,q10,brute force
+task5,q11,certificate transparency logs
+task5,q12,passive enumeration
+task6,q13,CBX{zone_transferred}
+task7,q14,complete

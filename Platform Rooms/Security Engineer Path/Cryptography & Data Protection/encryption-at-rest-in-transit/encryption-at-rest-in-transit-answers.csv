@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,ciphertext
+task2,q2,symmetric
+task3,q3,TLS
+task3,q4,IPSec
+task3,q5,handshake
+task4,q6,TDE
+task4,q7,field-level encryption
+task4,q8,disk encryption
+task5,q9,secure enclave
+task5,q10,TEE
+task6,q11,Restricted
+task6,q12,classification
+task7,q13,CBX{controls_mapped}
+task8,q14,complete

@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,Common Vulnerability Scoring System
+task2,q2,Base
+task3,q3,Network
+task3,q4,Privileges Required
+task4,q5,CIA
+task4,q6,Critical
+task5,q7,Temporal
+task5,q8,No
+task6,q9,Environmental
+task6,q10,Modified
+task7,q11,CBX{severity_triaged}
+task8,q12,complete

@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,detection lifecycle
+task2,q2,threat intelligence
+task2,q3,use case
+task3,q4,correlation rule
+task3,q5,threshold
+task3,q6,time window
+task4,q7,false positive
+task4,q8,false negative
+task5,q9,mean time to detect
+task5,q10,mean time to respond
+task6,q11,MITRE ATT&CK
+task6,q12,coverage gap
+task7,q13,CBX{brute_force_correlated}
+task8,q14,complete

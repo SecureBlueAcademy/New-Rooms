@@ -1,0 +1,14 @@
+task1,q0,yes
+task2,q1,DGA
+task2,q2,DNS tunneling
+task2,q3,53
+task3,q4,RRSIG
+task3,q5,authenticity
+task4,q6,853
+task4,q7,DoH
+task5,q8,Response Policy Zones
+task5,q9,block
+task6,q10,split-horizon
+task6,q11,internal records
+task7,q12,CBX{policy_zone_enforced}
+task8,q13,complete

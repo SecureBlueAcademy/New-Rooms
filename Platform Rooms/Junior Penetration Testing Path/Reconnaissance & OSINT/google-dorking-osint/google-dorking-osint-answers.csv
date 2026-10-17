@@ -1,0 +1,11 @@
+task1,q0,yes
+task2,q1,operator
+task2,q2,crawler
+task3,q3,site:
+task3,q4,filetype:
+task4,q5,inurl:
+task4,q6,intitle:
+task5,q7,OSINT
+task5,q8,authorization
+task6,q9,CBX{admin_exposed}
+task7,q10,complete

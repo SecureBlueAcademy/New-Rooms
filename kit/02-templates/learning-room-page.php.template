@@ -1,0 +1,231 @@
+<?php
+// {{SLUG}}.php
+// LEARNING ROOM THEORY PAGE TEMPLATE (Cybrixen current format, see 03-docs/06-file-and-format-reference.md)
+// Replace every {{PLACEHOLDER}}. Delete these template comments before submitting.
+// Shape: task1 Introduction, task2..task5 concept tasks (3 or 4), Practical task, Conclusion task.
+// Target size about 16 to 26 KB once content is written. No em dashes anywhere. No Free/Paid wording.
+
+// ========================
+// 1. ROOM CONFIGURATION
+// ========================
+$room_config = [
+    'id'              => '{{SLUG}}',
+    'title'           => '{{TITLE}}',
+    'description'     => '{{ONE_SENTENCE_DESCRIPTION}}',
+    'icon'            => 'fas {{FONTAWESOME_ICON}}',          // for example fa-shield-halved
+    'banner'          => '../../assets/{{BANNER_FILE}}',      // existing banner asset
+    'difficulty'      => '{{DIFFICULTY}}',                    // Beginner | Intermediate | Expert (never Advanced)
+    'estimated_time'  => '{{EST_TIME}} minutes',
+    'prerequisites'   => ['{{PREREQUISITE_ROOM_TITLE}}'],
+    'learning_objectives' => [
+        '{{OBJECTIVE_1}}',
+        '{{OBJECTIVE_2}}',
+        '{{OBJECTIVE_3}}',
+        '{{OBJECTIVE_4}}',
+    ],
+];
+
+// ========================
+// 2. ANSWERS FILE PATH
+// ========================
+$answers_file = __DIR__ . '/{{SLUG}}-answers.csv';
+
+// ========================
+// 3. SIDEBAR TASK LIST
+// ========================
+$room_tasks = [
+    ['id' => 'task1', 'title' => 'Introduction'],
+    ['id' => 'task2', 'title' => '{{CONCEPT_TASK_2_TITLE}}'],
+    ['id' => 'task3', 'title' => '{{CONCEPT_TASK_3_TITLE}}'],
+    ['id' => 'task4', 'title' => '{{CONCEPT_TASK_4_TITLE}}'],
+    ['id' => 'task5', 'title' => '{{CONCEPT_TASK_5_TITLE}}'],   // remove if the room has only 3 concept tasks and renumber
+    ['id' => 'task6', 'title' => 'Practical'],
+    ['id' => 'task7', 'title' => 'Conclusion'],
+];
+
+// ========================
+// 4. JAVASCRIPT CONFIG
+// ========================
+$js_config = [
+    'storage_key'          => '{{SLUG_UNDERSCORED}}_progress',   // slug with - replaced by _
+    'instagram_takeaways'  => [
+        '✓ {{TAKEAWAY_1}}',
+        '✓ {{TAKEAWAY_2}}',
+        '✓ {{TAKEAWAY_3}}',
+        '✓ {{TAKEAWAY_4}}',
+    ],
+];
+
+// ========================
+// 5. QUESTIONS DATA
+// ========================
+// Question ids run q0..qN across the whole room and must match {{SLUG}}-answers.csv exactly.
+// Each concept task has 2 to 4 short-answer questions. Answers are 1 to 3 words, one natural form,
+// digits for counts, unique across the room. State the answer format in the question text.
+$task_questions_data = [
+    'task1' => [
+        ['id' => 'q0', 'text' => 'Type <strong>"yes"</strong> to complete this task.'],
+    ],
+    'task2' => [
+        ['id' => 'q1', 'text' => '{{QUESTION_TEXT}} Answer with one word.'],
+        ['id' => 'q2', 'text' => '{{QUESTION_TEXT}}'],
+        ['id' => 'q3', 'text' => '{{QUESTION_TEXT}} Answer with digits.'],
+    ],
+    'task3' => [
+        ['id' => 'q4', 'text' => '{{QUESTION_TEXT}}'],
+        ['id' => 'q5', 'text' => '{{QUESTION_TEXT}}'],
+        ['id' => 'q6', 'text' => '{{QUESTION_TEXT}}'],
+    ],
+    'task4' => [
+        ['id' => 'q7', 'text' => '{{QUESTION_TEXT}}'],
+        ['id' => 'q8', 'text' => '{{QUESTION_TEXT}}'],
+        ['id' => 'q9', 'text' => '{{QUESTION_TEXT}}'],
+    ],
+    'task5' => [
+        ['id' => 'q10', 'text' => '{{QUESTION_TEXT}}'],
+        ['id' => 'q11', 'text' => '{{QUESTION_TEXT}}'],
+    ],
+    'task6' => [
+        ['id' => 'q12', 'text' => '{{PRACTICAL_QUESTION_TEXT}}'],
+        ['id' => 'q13', 'text' => 'Enter the flag you discovered in the {{PRACTICAL_TOOL_NAME}}.'],
+    ],
+    'task7' => [
+        ['id' => 'q14', 'text' => 'Type <strong>"complete"</strong> to finish this room.'],
+    ],
+];
+
+// ========================
+// 6. TASK CONTENT BLOCKS
+// ========================
+// HTML heredocs. Use content-table tables, <pre><code> blocks, info-box callouts and inline SVG.
+// Every SVG gets an HTML comment that explains what it teaches.
+// Every answer must be findable in the task text it belongs to. Every graded order the practical
+// checks must be taught here (usually in an ordered list or table).
+
+// TASK 1: Introduction
+$task_contents[1] = <<<'HTML'
+<div class="content-block">
+    <p>{{SCENARIO_HOOK_PARAGRAPH: who the learner is, what system, what just happened}}</p>
+
+    <p>{{WHY_IT_MATTERS_PARAGRAPH}}</p>
+
+    <p>{{SCOPE_PARAGRAPH: what this room teaches and what it assumes from prerequisite rooms}}</p>
+
+    <h3>Learning Objectives</h3>
+    <ul>
+        <li>{{OBJECTIVE_1}}.</li>
+        <li>{{OBJECTIVE_2}}.</li>
+        <li>{{OBJECTIVE_3}}.</li>
+        <li>{{OBJECTIVE_4}}.</li>
+    </ul>
+</div>
+HTML;
+
+// TASK 2: {{CONCEPT_TASK_2_TITLE}}
+$task_contents[2] = <<<'HTML'
+<div class="content-block">
+    <h2>{{CONCEPT_TASK_2_TITLE}}</h2>
+    <p>{{CONCEPT_EXPLANATION}}</p>
+
+    <h3>{{SUBHEADING}}</h3>
+    <p>{{DETAIL_WITH_INLINE_CODE e.g. <code>command --flag</code>}}</p>
+
+    <table class="content-table">
+        <thead>
+            <tr><th>{{COL_1}}</th><th>{{COL_2}}</th><th>{{COL_3}}</th></tr>
+        </thead>
+        <tbody>
+            <tr><td>{{CELL}}</td><td>{{CELL}}</td><td>{{CELL}}</td></tr>
+            <tr><td>{{CELL}}</td><td>{{CELL}}</td><td>{{CELL}}</td></tr>
+        </tbody>
+    </table>
+
+    <div class="info-box">
+        <h4><i class="fas fa-info-circle"></i> {{CALLOUT_TITLE}}</h4>
+        <p>{{CALLOUT_TEXT}}</p>
+    </div>
+</div>
+HTML;
+
+// TASK 3: {{CONCEPT_TASK_3_TITLE}}
+$task_contents[3] = <<<'HTML'
+<div class="content-block">
+    <h2>{{CONCEPT_TASK_3_TITLE}}</h2>
+    <p>{{CONCEPT_EXPLANATION}}</p>
+
+    <!-- SVG purpose: {{EXPLAIN WHAT THIS DIAGRAM TEACHES, e.g. the ordered gate before any change}} -->
+    <svg viewBox="0 0 640 120" width="100%" role="img" aria-label="{{DIAGRAM_ALT_TEXT}}">
+        <rect x="10" y="35" width="180" height="50" rx="8" fill="#161d36" stroke="#6ae3ff"/>
+        <text x="100" y="65" fill="#e6e9f2" font-size="14" text-anchor="middle">{{STEP_1}}</text>
+        <line x1="190" y1="60" x2="230" y2="60" stroke="#8b7bff" stroke-width="2"/>
+        <rect x="230" y="35" width="180" height="50" rx="8" fill="#161d36" stroke="#6ae3ff"/>
+        <text x="320" y="65" fill="#e6e9f2" font-size="14" text-anchor="middle">{{STEP_2}}</text>
+        <line x1="410" y1="60" x2="450" y2="60" stroke="#8b7bff" stroke-width="2"/>
+        <rect x="450" y="35" width="180" height="50" rx="8" fill="#161d36" stroke="#6ae3ff"/>
+        <text x="540" y="65" fill="#e6e9f2" font-size="14" text-anchor="middle">{{STEP_3}}</text>
+    </svg>
+
+    <ol>
+        <li>{{ORDERED_STEP_1 (teach every order the practical grades)}}</li>
+        <li>{{ORDERED_STEP_2}}</li>
+        <li>{{ORDERED_STEP_3}}</li>
+    </ol>
+</div>
+HTML;
+
+// TASK 4: {{CONCEPT_TASK_4_TITLE}}
+$task_contents[4] = <<<'HTML'
+<div class="content-block">
+    <h2>{{CONCEPT_TASK_4_TITLE}}</h2>
+    <p>{{CONCEPT_EXPLANATION}}</p>
+<pre><code>{{SAMPLE_LOG_OR_COMMAND_OUTPUT (synthetic, cbx.lab, RFC 5737 / RFC 1918 addresses)}}</code></pre>
+    <p>{{HOW_TO_READ_THE_SAMPLE}}</p>
+</div>
+HTML;
+
+// TASK 5: {{CONCEPT_TASK_5_TITLE}}
+$task_contents[5] = <<<'HTML'
+<div class="content-block">
+    <h2>{{CONCEPT_TASK_5_TITLE}}</h2>
+    <p>{{CONCEPT_EXPLANATION}}</p>
+</div>
+HTML;
+
+// TASK 6: Practical
+$task_contents[6] = <<<'HTML'
+<div class="content-block">
+    <p>{{PRACTICAL_SCENARIO_PARAGRAPH: what the learner does in the lab, without giving away answers}}</p>
+
+    <p>{{WHAT_UNLOCKS_THE_FLAG (describe the goal, not the solution)}}</p>
+
+    <div class="practical-launch-wrapper">
+        <a href="{{SLUG}}-practical.php" target="_blank" class="practical-launch-btn">
+            <span class="launch-icon">⚡</span>
+            <span class="launch-text">Launch {{PRACTICAL_TOOL_NAME}}</span>
+            <span class="launch-arrow">→</span>
+        </a>
+        <p class="launch-note">Opens in a new tab. Complete the challenge and return here to enter the flag.</p>
+    </div>
+</div>
+HTML;
+
+// TASK 7: Conclusion
+$task_contents[7] = <<<'HTML'
+<div class="content-block">
+    <p>{{RECAP_PARAGRAPH}}</p>
+
+    <h3>Key Takeaways</h3>
+    <ul>
+        <li>{{TAKEAWAY_1}}</li>
+        <li>{{TAKEAWAY_2}}</li>
+        <li>{{TAKEAWAY_3}}</li>
+        <li>{{TAKEAWAY_4}}</li>
+    </ul>
+</div>
+HTML;
+
+// ============================================================
+// END OF DATA
+// ============================================================
+define('CYBRIXEN_ROOM_ENGINE', true);
+require_once '../../includes/room-engine.php';

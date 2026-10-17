@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,NIDS
+task2,q2,HIDS
+task2,q3,HIDS
+task3,q4,inline
+task3,q5,passive
+task3,q6,fail open
+task4,q7,choke point
+task5,q8,threshold calibration
+task5,q9,alert suppression
+task5,q10,signature tuning
+task6,q11,dwell time
+task6,q12,false positive rate
+task7,q13,CBX{coverage_optimized}
+task8,q14,complete

@@ -1,0 +1,14 @@
+task1,q0,yes
+task2,q1,shift left
+task2,q2,static analysis
+task2,q3,IaC scanners
+task3,q4,Open Policy Agent
+task3,q5,Rego
+task3,q6,policy as code
+task4,q7,drift
+task4,q8,terraform plan
+task4,q9,out-of-band changes
+task5,q10,guardrails
+task5,q11,gate
+task6,q12,CBX{pipeline_secured}
+task7,q13,complete

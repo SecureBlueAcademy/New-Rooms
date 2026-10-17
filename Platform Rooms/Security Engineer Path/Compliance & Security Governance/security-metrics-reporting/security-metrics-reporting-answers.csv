@@ -1,0 +1,14 @@
+task1,q0,yes
+task2,q1,MTTD
+task2,q2,MTTR
+task2,q3,median
+task3,q4,SLA adherence
+task3,q5,critical
+task4,q6,patch coverage
+task4,q7,EOL
+task5,q8,ATT&CK
+task5,q9,lateral movement
+task6,q10,vanity metric
+task6,q11,executives
+task7,q12,CBX{mttr_sla_missed}
+task8,q13,complete

@@ -1,0 +1,16 @@
+task1,q0,yes
+task2,q1,shift left
+task2,q2,SSDLC
+task3,q3,least privilege
+task3,q4,fail securely
+task4,q5,STRIDE
+task4,q6,trust boundary
+task4,q7,Information Disclosure
+task5,q8,SAST
+task5,q9,DAST
+task6,q10,SCA
+task6,q11,fuzzing
+task7,q12,BSIMM
+task7,q13,OWASP SAMM
+task8,q14,CBX{threats_modeled}
+task9,q15,complete

@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,root CA
+task2,q2,issuing CA
+task2,q3,chain of trust
+task3,q4,certificate template
+task3,q5,auto-enrolment
+task4,q6,CRL
+task4,q7,OCSP
+task4,q8,OCSP stapling
+task5,q9,certificate lifecycle
+task5,q10,ACME
+task6,q11,MITM
+task6,q12,weak key
+task7,q13,CBX{chain_restored}
+task8,q14,complete

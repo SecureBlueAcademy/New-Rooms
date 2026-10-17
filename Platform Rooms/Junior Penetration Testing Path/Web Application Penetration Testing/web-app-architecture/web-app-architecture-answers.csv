@@ -1,0 +1,12 @@
+task1,q0,yes
+task2,q1,POST
+task2,q2,404
+task2,q3,stateless
+task3,q4,Set-Cookie
+task3,q5,session ID
+task4,q6,SQL
+task4,q7,SQL injection
+task5,q8,attack surface
+task5,q9,session hijacking
+task6,q10,CBX{request_traced}
+task7,q11,complete

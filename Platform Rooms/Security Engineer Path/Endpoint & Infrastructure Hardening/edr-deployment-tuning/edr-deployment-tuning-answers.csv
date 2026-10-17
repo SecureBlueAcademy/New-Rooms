@@ -1,0 +1,15 @@
+# Filename: edr-deployment-tuning-answers.csv
+task1,q0,yes
+task2,q1,Endpoint Detection and Response
+task2,q2,signature-based
+task2,q3,sensor
+task3,q4,pilot group
+task3,q5,phased rollout
+task4,q6,least privilege
+task4,q7,hash
+task5,q8,detect-only
+task5,q9,prevent
+task6,q10,tuning
+task6,q11,detection gap
+task7,q12,CBX{signal_tuned}
+task8,q13,complete

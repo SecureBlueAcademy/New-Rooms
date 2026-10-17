@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,pentest
+task2,q2,scope of engagement
+task3,q3,vulnerability scanning
+task3,q4,red teaming
+task4,q5,reconnaissance
+task4,q6,reporting
+task5,q7,black box
+task5,q8,white box
+task6,q9,attacker mindset
+task6,q10,attack surface
+task7,q11,CBX{scope_defined}
+task8,q12,complete

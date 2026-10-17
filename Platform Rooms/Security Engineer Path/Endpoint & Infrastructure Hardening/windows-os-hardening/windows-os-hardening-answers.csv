@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,SMBv1
+task2,q2,ASR
+task2,q3,attack surface
+task3,q4,allowlisting
+task3,q5,WDAC
+task3,q6,audit mode
+task4,q7,Constrained Language Mode
+task4,q8,Full Language Mode
+task5,q9,LSASS
+task5,q10,Credential Guard
+task6,q11,CBX{endpoint_hardened}
+task7,q12,complete

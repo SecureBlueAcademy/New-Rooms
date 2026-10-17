@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,privacy by design
+task2,q2,special category data
+task3,q3,pseudonymisation
+task3,q4,anonymisation
+task4,q5,encryption at rest
+task4,q6,encryption in transit
+task5,q7,one month
+task5,q8,DSAR
+task6,q9,storage limitation
+task6,q10,retention policy
+task7,q11,72 hours
+task7,q12,Article 33
+task8,q13,CBX{dsar_fulfilled}
+task9,q14,complete

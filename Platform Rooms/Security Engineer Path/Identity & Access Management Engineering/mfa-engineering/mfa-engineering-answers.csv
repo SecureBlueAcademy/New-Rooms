@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,possession factor
+task2,q2,biometrics
+task3,q3,Time-based One-Time Password
+task3,q4,HMAC
+task4,q5,passkey
+task4,q6,origin binding
+task5,q7,SIM swapping
+task5,q8,SS7
+task6,q9,MFA fatigue
+task6,q10,adversary-in-the-middle
+task7,q11,break-glass account
+task7,q12,step-up authentication
+task8,q13,CBX{access_policy_enforced}
+task9,q14,complete

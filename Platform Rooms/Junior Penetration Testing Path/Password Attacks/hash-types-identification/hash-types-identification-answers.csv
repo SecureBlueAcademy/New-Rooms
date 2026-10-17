@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,digest
+task2,q2,one-way function
+task2,q3,deterministic
+task3,q4,hexadecimal
+task3,q5,32
+task3,q6,$2b$
+task4,q7,NT LAN Manager
+task4,q8,NTLM
+task4,q9,SHA256
+task5,q10,rainbow table
+task5,q11,salt
+task5,q12,bcrypt
+task6,q13,CBX{breach_contained}
+task7,q14,complete

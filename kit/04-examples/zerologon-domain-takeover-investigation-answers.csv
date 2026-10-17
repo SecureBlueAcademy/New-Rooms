@@ -1,0 +1,12 @@
+# FILENAME: zerologon-domain-takeover-investigation-answers.csv
+task1,q0,yes
+task2,q1,10.92.30.47
+task2,q2,187
+task2,q3,NetrServerPasswordSet2
+task2,q4,ANONYMOUS LOGON
+task2,q5,03:41:26
+task2,q6,hqdc01$
+task2,q7,hqdc02
+task2,q8,krbtgt
+task2,q9,CBX{reset_machineaccount}
+task3,q10,complete

@@ -1,0 +1,11 @@
+task1,q0,yes
+task2,q1,broken access control
+task2,q2,direct object reference
+task3,q3,horizontal escalation
+task3,q4,predictable identifier
+task4,q5,vertical escalation
+task4,q6,vertical
+task5,q7,server side
+task5,q8,indirect reference map
+task6,q9,CBX{document_exposed}
+task7,q10,complete

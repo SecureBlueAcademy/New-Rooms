@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,Network Access Control
+task2,q2,Authenticate
+task3,q3,Supplicant
+task3,q4,Authenticator
+task3,q5,RADIUS
+task4,q6,Access-Accept
+task4,q7,Access-Reject
+task5,q8,Posture assessment
+task5,q9,Agent-based
+task6,q10,Quarantine VLAN
+task6,q11,MAC Authentication Bypass
+task6,q12,BYOD
+task7,q13,CBX{session_authenticated}
+task8,q14,complete
