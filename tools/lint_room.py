@@ -305,7 +305,7 @@ def main():
             rep.fail(pname, f'line {line_of(psrc, m.start())}', f'feedback counter "{m.group(0)}" (must be plain "Not yet.")')
         for m in re.finditer(r'>\s*(Show\s+)?Hints?\s*:?\s*<|id="hint', psrc, re.I):
             rep.fail(pname, f'line {line_of(psrc, m.start())}', 'Hint button or hint element')
-        if not re.search(r'auth\.php', psrc):
+        if not re.search(r"require(_once)?\s*\(?\s*__DIR__\s*\.\s*'[^']*includes/auth\.php'", psrc):
             rep.warn(pname, 'top', 'no auth guard: practical can be opened without logging in')
         if 'Escape' not in psrc:
             rep.warn(pname, '', 'tutorial does not appear to close on Escape')

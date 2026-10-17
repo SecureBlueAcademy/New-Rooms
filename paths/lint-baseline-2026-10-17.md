@@ -5,27 +5,27 @@ This is only the mechanical half of QA; each room still needs a full Path QA aud
 
 | Defect | Junior Penetration Testing Path (48 rooms) | Security Engineer Path (49 rooms) |
 |---|---|---|
-| tutorial: no Escape | 48 | 49 |
-| flag in plain source | 48 | 49 |
 | tutorial: no first-visit flag | 48 | 49 |
-| no plain "Not yet." feedback | 48 | 49 |
+| no auth guard on practical | 48 | 49 |
+| tutorial: no Escape | 48 | 49 |
 | flag not sealed | 48 | 49 |
-| no auth guard on practical | 48 | 48 |
+| flag in plain source | 48 | 49 |
+| no plain "Not yet." feedback | 48 | 49 |
 | CSV header missing | 47 | 49 |
 | em dash | 40 | 23 |
 | no narrow-width media query | 11 | 13 |
 | answer over 3 words | 4 | 6 |
 | room id != slug | 6 | 2 |
-| Hint button/panel | 2 | 4 |
 | storage key | 3 | 3 |
+| Hint button/panel | 2 | 4 |
 | duplicate answer | 2 | 3 |
-| PHP question ids differ from CSV | 2 | 2 |
 | count written in words | 3 | 1 |
+| PHP question ids differ from CSV | 2 | 2 |
 | CSV q ids not continuous | 1 | 2 |
 | CSV q0 not yes | 1 | 1 |
 | difficulty label | 2 | 0 |
-| file naming | 1 | 0 |
 | other | 1 | 0 |
+| file naming | 1 | 0 |
 
 ## Per room
 
@@ -82,7 +82,7 @@ This is only the mechanical half of QA; each room still needs a full Path QA aud
 | Security Engineer Path | Application Security Engineering | api-security-engineering | 6 | 10 | Intermediate |
 | Security Engineer Path | Application Security Engineering | container-kubernetes-security | 6 | 7 | Intermediate |
 | Security Engineer Path | Application Security Engineering | devsecops-engineering | 7 | 6 | Intermediate |
-| Security Engineer Path | Application Security Engineering | secure-code-review | 6 | 2 | Intermediate |
+| Security Engineer Path | Application Security Engineering | secure-code-review | 6 | 3 | Intermediate |
 | Security Engineer Path | Application Security Engineering | ssdlc | 5 | 5 | Intermediate |
 | Security Engineer Path | Cloud Security Engineering | cloud-iam-privesc | 8 | 6 | Intermediate |
 | Security Engineer Path | Cloud Security Engineering | cloud-security-architecture | 5 | 8 | Intermediate |
