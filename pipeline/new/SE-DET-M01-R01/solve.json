@@ -1,0 +1,3792 @@
+{
+ "solve": {
+  "steps": [
+   {
+    "click": "#tab-spec"
+   },
+   {
+    "fill": "#spec-title",
+    "value": "certutil web download"
+   },
+   {
+    "select": "#spec-technique",
+    "value": "T1105"
+   },
+   {
+    "select": "#spec-source",
+    "value": "sysmon1"
+   },
+   {
+    "select": "#exp-TC-01",
+    "value": "No alert"
+   },
+   {
+    "select": "#exp-TC-02",
+    "value": "No alert"
+   },
+   {
+    "select": "#exp-TC-03",
+    "value": "No alert"
+   },
+   {
+    "select": "#exp-TC-04",
+    "value": "Alert"
+   },
+   {
+    "select": "#exp-TC-05",
+    "value": "Alert"
+   },
+   {
+    "select": "#exp-TC-06",
+    "value": "No alert"
+   },
+   {
+    "select": "#exp-TC-07",
+    "value": "No alert"
+   },
+   {
+    "select": "#exp-TC-08",
+    "value": "No alert"
+   },
+   {
+    "select": "#exp-TC-09",
+    "value": "No alert"
+   },
+   {
+    "select": "#exp-TC-10",
+    "value": "Alert"
+   },
+   {
+    "click": "#tab-rule"
+   },
+   {
+    "click": "#btn-add-cond"
+   },
+   {
+    "select": "#cond-0-f",
+    "value": "OriginalFileName"
+   },
+   {
+    "select": "#cond-0-op",
+    "value": "equals"
+   },
+   {
+    "fill": "#cond-0-v",
+    "value": "CertUtil.exe"
+   },
+   {
+    "click": "#btn-add-cond"
+   },
+   {
+    "select": "#cond-1-f",
+    "value": "CommandLine"
+   },
+   {
+    "select": "#cond-1-op",
+    "value": "contains"
+   },
+   {
+    "fill": "#cond-1-v",
+    "value": "urlcache"
+   },
+   {
+    "click": "#btn-add-cond"
+   },
+   {
+    "select": "#cond-2-f",
+    "value": "CommandLine"
+   },
+   {
+    "select": "#cond-2-op",
+    "value": "contains"
+   },
+   {
+    "fill": "#cond-2-v",
+    "value": "http"
+   },
+   {
+    "click": "#tab-rule"
+   },
+   {
+    "click": "#btn-run-tests"
+   },
+   {
+    "click": "#tab-deploy"
+   },
+   {
+    "click": "#btn-deploy"
+   },
+   {
+    "click": "#tab-rule"
+   },
+   {
+    "click": "#btn-add-excl"
+   },
+   {
+    "select": "#excl-0-0-f",
+    "value": "ParentImage"
+   },
+   {
+    "select": "#excl-0-0-op",
+    "value": "ends with"
+   },
+   {
+    "fill": "#excl-0-0-v",
+    "value": "\\pkgrelay.exe"
+   },
+   {
+    "click": "#btn-excl-add-row-0"
+   },
+   {
+    "select": "#excl-0-1-f",
+    "value": "CommandLine"
+   },
+   {
+    "select": "#excl-0-1-op",
+    "value": "contains"
+   },
+   {
+    "fill": "#excl-0-1-v",
+    "value": "srv05.cbx.lab/pkg/"
+   },
+   {
+    "click": "#tab-rule"
+   },
+   {
+    "click": "#btn-run-tests"
+   },
+   {
+    "click": "#tab-deploy"
+   },
+   {
+    "fill": "#cl-version",
+    "value": "1.1.0"
+   },
+   {
+    "click": "#cl-type-minor"
+   },
+   {
+    "fill": "#cl-summary",
+    "value": "Exclude PkgRelay mirror downloads"
+   },
+   {
+    "fill": "#cl-reason",
+    "value": "6 shadow false positives from the package agent"
+   },
+   {
+    "click": "#btn-add-cl"
+   },
+   {
+    "click": "#tab-deploy"
+   },
+   {
+    "click": "#btn-rerun-shadow"
+   },
+   {
+    "click": "#btn-promote"
+   },
+   {
+    "click": "#tab-record"
+   },
+   {
+    "click": "#deck [data-id=\"c1\"]"
+   },
+   {
+    "click": "#deck [data-id=\"c2\"]"
+   },
+   {
+    "click": "#deck [data-id=\"c3\"]"
+   },
+   {
+    "click": "#deck [data-id=\"c4\"]"
+   },
+   {
+    "click": "#deck [data-id=\"c5\"]"
+   },
+   {
+    "click": "#deck [data-id=\"c6\"]"
+   },
+   {
+    "click": "#deck [data-id=\"c7\"]"
+   },
+   {
+    "click": "#deck [data-id=\"c8\"]"
+   },
+   {
+    "click": "#deck [data-id=\"c9\"]"
+   },
+   {
+    "fill": "#ans-1",
+    "value": "pkgrelay.exe"
+   },
+   {
+    "fill": "#ans-2",
+    "value": "ws27"
+   },
+   {
+    "fill": "#ans-3",
+    "value": "1.1.0"
+   },
+   {
+    "click": "#btn-submit"
+   }
+  ],
+  "expectText": "CBX{promote_detection}"
+ },
+ "traps": [
+  {
+   "name": "trap card t1",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-deploy"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "fill": "#cl-version",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#cl-type-minor"
+    },
+    {
+     "fill": "#cl-summary",
+     "value": "Exclude PkgRelay mirror downloads"
+    },
+    {
+     "fill": "#cl-reason",
+     "value": "6 shadow false positives from the package agent"
+    },
+    {
+     "click": "#btn-add-cl"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-rerun-shadow"
+    },
+    {
+     "click": "#btn-promote"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"t1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "trap card t2",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-deploy"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "fill": "#cl-version",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#cl-type-minor"
+    },
+    {
+     "fill": "#cl-summary",
+     "value": "Exclude PkgRelay mirror downloads"
+    },
+    {
+     "fill": "#cl-reason",
+     "value": "6 shadow false positives from the package agent"
+    },
+    {
+     "click": "#btn-add-cl"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-rerun-shadow"
+    },
+    {
+     "click": "#btn-promote"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"t2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "trap card t3",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-deploy"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "fill": "#cl-version",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#cl-type-minor"
+    },
+    {
+     "fill": "#cl-summary",
+     "value": "Exclude PkgRelay mirror downloads"
+    },
+    {
+     "fill": "#cl-reason",
+     "value": "6 shadow false positives from the package agent"
+    },
+    {
+     "click": "#btn-add-cl"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-rerun-shadow"
+    },
+    {
+     "click": "#btn-promote"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"t3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "trap card t4",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-deploy"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "fill": "#cl-version",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#cl-type-minor"
+    },
+    {
+     "fill": "#cl-summary",
+     "value": "Exclude PkgRelay mirror downloads"
+    },
+    {
+     "fill": "#cl-reason",
+     "value": "6 shadow false positives from the package agent"
+    },
+    {
+     "click": "#btn-add-cl"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-rerun-shadow"
+    },
+    {
+     "click": "#btn-promote"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"t4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "trap card t5",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-deploy"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "fill": "#cl-version",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#cl-type-minor"
+    },
+    {
+     "fill": "#cl-summary",
+     "value": "Exclude PkgRelay mirror downloads"
+    },
+    {
+     "fill": "#cl-reason",
+     "value": "6 shadow false positives from the package agent"
+    },
+    {
+     "click": "#btn-add-cl"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-rerun-shadow"
+    },
+    {
+     "click": "#btn-promote"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"t5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "c7 before c6 is accepted order but wrong proof version 1.0.1",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-deploy"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "fill": "#cl-version",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#cl-type-minor"
+    },
+    {
+     "fill": "#cl-summary",
+     "value": "Exclude PkgRelay mirror downloads"
+    },
+    {
+     "fill": "#cl-reason",
+     "value": "6 shadow false positives from the package agent"
+    },
+    {
+     "click": "#btn-add-cl"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-rerun-shadow"
+    },
+    {
+     "click": "#btn-promote"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.0.1"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "wrong proof parent msiexec",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-deploy"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "fill": "#cl-version",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#cl-type-minor"
+    },
+    {
+     "fill": "#cl-summary",
+     "value": "Exclude PkgRelay mirror downloads"
+    },
+    {
+     "fill": "#cl-reason",
+     "value": "6 shadow false positives from the package agent"
+    },
+    {
+     "click": "#btn-add-cl"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-rerun-shadow"
+    },
+    {
+     "click": "#btn-promote"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "msiexec.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "wrong proof host ws33",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-deploy"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "fill": "#cl-version",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#cl-type-minor"
+    },
+    {
+     "fill": "#cl-summary",
+     "value": "Exclude PkgRelay mirror downloads"
+    },
+    {
+     "fill": "#cl-reason",
+     "value": "6 shadow false positives from the package agent"
+    },
+    {
+     "click": "#btn-add-cl"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-rerun-shadow"
+    },
+    {
+     "click": "#btn-promote"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws33"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "wrong order c5 before c4",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-deploy"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "fill": "#cl-version",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#cl-type-minor"
+    },
+    {
+     "fill": "#cl-summary",
+     "value": "Exclude PkgRelay mirror downloads"
+    },
+    {
+     "fill": "#cl-reason",
+     "value": "6 shadow false positives from the package agent"
+    },
+    {
+     "click": "#btn-add-cl"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-rerun-shadow"
+    },
+    {
+     "click": "#btn-promote"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "wrong rule no exclusion",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-deploy"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "wrong rule SYSTEM exclusion",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "User"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "NT AUTHORITY\\SYSTEM"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "wrong rule ws27 exclusion",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "Computer"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "ws27.cbx.lab"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "wrong rule Image path",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "Image"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "\\certutil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "wrong rule dash urlcache",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "-urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "wrong rule no binary condition",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "wrong rule no http condition",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-record"
+    },
+    {
+     "click": "#deck [data-id=\"c1\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c2\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c3\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c4\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c5\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c6\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c7\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c8\"]"
+    },
+    {
+     "click": "#deck [data-id=\"c9\"]"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  },
+  {
+   "name": "empty plan",
+   "steps": [
+    {
+     "click": "#tab-spec"
+    },
+    {
+     "fill": "#spec-title",
+     "value": "certutil web download"
+    },
+    {
+     "select": "#spec-technique",
+     "value": "T1105"
+    },
+    {
+     "select": "#spec-source",
+     "value": "sysmon1"
+    },
+    {
+     "select": "#exp-TC-01",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-02",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-03",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-04",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-05",
+     "value": "Alert"
+    },
+    {
+     "select": "#exp-TC-06",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-07",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-08",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-09",
+     "value": "No alert"
+    },
+    {
+     "select": "#exp-TC-10",
+     "value": "Alert"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-0-f",
+     "value": "OriginalFileName"
+    },
+    {
+     "select": "#cond-0-op",
+     "value": "equals"
+    },
+    {
+     "fill": "#cond-0-v",
+     "value": "CertUtil.exe"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-1-v",
+     "value": "urlcache"
+    },
+    {
+     "click": "#btn-add-cond"
+    },
+    {
+     "select": "#cond-2-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#cond-2-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#cond-2-v",
+     "value": "http"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-deploy"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-add-excl"
+    },
+    {
+     "select": "#excl-0-0-f",
+     "value": "ParentImage"
+    },
+    {
+     "select": "#excl-0-0-op",
+     "value": "ends with"
+    },
+    {
+     "fill": "#excl-0-0-v",
+     "value": "\\pkgrelay.exe"
+    },
+    {
+     "click": "#btn-excl-add-row-0"
+    },
+    {
+     "select": "#excl-0-1-f",
+     "value": "CommandLine"
+    },
+    {
+     "select": "#excl-0-1-op",
+     "value": "contains"
+    },
+    {
+     "fill": "#excl-0-1-v",
+     "value": "srv05.cbx.lab/pkg/"
+    },
+    {
+     "click": "#tab-rule"
+    },
+    {
+     "click": "#btn-run-tests"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "fill": "#cl-version",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#cl-type-minor"
+    },
+    {
+     "fill": "#cl-summary",
+     "value": "Exclude PkgRelay mirror downloads"
+    },
+    {
+     "fill": "#cl-reason",
+     "value": "6 shadow false positives from the package agent"
+    },
+    {
+     "click": "#btn-add-cl"
+    },
+    {
+     "click": "#tab-deploy"
+    },
+    {
+     "click": "#btn-rerun-shadow"
+    },
+    {
+     "click": "#btn-promote"
+    },
+    {
+     "fill": "#ans-1",
+     "value": "pkgrelay.exe"
+    },
+    {
+     "fill": "#ans-2",
+     "value": "ws27"
+    },
+    {
+     "fill": "#ans-3",
+     "value": "1.1.0"
+    },
+    {
+     "click": "#btn-submit"
+    }
+   ]
+  }
+ ],
+ "reset": {
+  "steps": [
+   {
+    "click": "#btn-reset"
+   }
+  ],
+  "expectHidden": "CBX{promote_detection}"
+ }
+}
