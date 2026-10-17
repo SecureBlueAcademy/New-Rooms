@@ -1,0 +1,17 @@
+# FILENAME: detection-engineering-lifecycle-answers.csv
+task1,q0,yes
+task2,q1,Tune
+task2,q2,indicator
+task2,q3,T1105
+task3,q4,1
+task3,q5,OriginalFileName
+task3,q6,success criteria
+task4,q7,near miss
+task4,q8,contains
+task4,q9,regression testing
+task5,q10,shadow mode
+task5,q11,patch
+task5,q12,changelog
+task6,q13,pkgrelay.exe
+task6,q14,CBX{promote_detection}
+task7,q15,complete
