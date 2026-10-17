@@ -61,18 +61,18 @@ $task_questions_data = [
     ],
     'task2' => [
         ['id' => 'q1', 'text' => 'What is the general term for a vulnerability that lets an attacker execute arbitrary OS commands through an application?'],
-        ['id' => 'q2', 'text' => 'What must user input undergo before being used in a system command, to prevent injection?'],
-        ['id' => 'q3', 'text' => 'What is the general OWASP vulnerability category that includes both command injection and SQL injection?'],
+        ['id' => 'q2', 'text' => 'What processing must user input undergo before it is placed in a shell command?'],
+        ['id' => 'q3', 'text' => 'Two attacks that abuse untrusted input, one against the shell and one against the database, are grouped under which OWASP Top 10 risk category? (one word)'],
     ],
     'task3' => [
         ['id' => 'q4', 'text' => 'Which PHP function executes a shell command and outputs its result directly?'],
         ['id' => 'q5', 'text' => 'What programming practice of joining strings together is commonly used to build a vulnerable command from user input?'],
-        ['id' => 'q6', 'text' => 'What type of validation, if relied on alone, fails to protect against command injection?'],
+        ['id' => 'q6', 'text' => 'Which kind of validation, when it is the only defense, can be bypassed by the attacker and therefore fails to stop this attack?'],
     ],
     'task4' => [
-        ['id' => 'q7', 'text' => 'Which shell operator executes a second command regardless of whether the first command succeeded?'],
-        ['id' => 'q8', 'text' => 'Which shell operator executes a second command only if the first command succeeded?'],
-        ['id' => 'q9', 'text' => 'Which shell operator sends the output of one command as input to another?'],
+        ['id' => 'q7', 'text' => 'A shell operator written as <code>;</code> runs a second command regardless of whether the first command succeeds. What is the name of this operator, in words?'],
+        ['id' => 'q8', 'text' => 'A shell operator written as <code>&amp;&amp;</code> runs a second command only when the first command succeeds. What is this operator called, in words?'],
+        ['id' => 'q9', 'text' => 'A shell operator written as <code>|</code> sends the output of the first command into the second command as its input. What is this operator called?'],
     ],
     'task5' => [
         ['id' => 'q10', 'text' => 'What is the term for a specially crafted input used to test or exploit a vulnerability?'],
@@ -91,6 +91,7 @@ $task_questions_data = [
 // ========================
 
 $task_contents[1] = <<<'HTML'
+<style>.task-body code, .task-body pre, .task-body pre code { color: #ffffff; }</style>
 <div class="content-block">
     <p>Command injection turns an ordinary input field into a direct line to a server's operating system. When an application passes user supplied data straight into a shell command, an attacker can piggyback on that trust and run their own instructions alongside it, often with the same level of access as the application itself.</p>
 
@@ -102,7 +103,6 @@ $task_contents[1] = <<<'HTML'
         <li>Identify PHP functions that execute OS commands.</li>
         <li>Recognize shell operators used to chain commands.</li>
         <li>Apply a systematic method to test for injection points.</li>
-        <li>Exploit a simulated vulnerable tool to retrieve a hidden flag.</li>
     </ul>
 </div>
 HTML;
@@ -111,7 +111,7 @@ $task_contents[2] = <<<'HTML'
 <div class="content-block">
     <h2>When Input Becomes Instructions</h2>
 
-    <p>Command injection is a vulnerability that lets an attacker execute arbitrary operating system commands through a vulnerable application. It happens when user supplied input is passed to a system shell without being checked or cleaned first.</p>
+    <p>Command injection is a vulnerability that lets an attacker execute arbitrary operating system commands through a vulnerable application. It happens when user supplied input is passed to a system shell without being checked or cleaned first. This checking and cleaning of untrusted input before it is used is called <strong>sanitization</strong>.</p>
 
     <p>Think of a mail room clerk who processes every package exactly as instructed by the label attached to it. If a label says "deliver to accounting" the clerk complies without question. If someone tapes an extra instruction onto that same label, such as "then shred every file in the archive room", a clerk who blindly follows every instruction on the label will do that too. A vulnerable application behaves the same way with user input.</p>
 
@@ -121,7 +121,7 @@ $task_contents[2] = <<<'HTML'
     </div>
 
     <h3>Command Injection in Context</h3>
-    <p>Command injection belongs to a broader family of flaws known as <strong>injection</strong> vulnerabilities. SQL injection targets a database, command injection targets the operating system shell, but both share the same root cause: untrusted input being treated as trusted instructions.</p>
+    <p>Command injection belongs to a broader family of flaws known as <strong>injection</strong> vulnerabilities, where untrusted input is treated as trusted instructions. One kind targets the operating system shell and another targets a database query. The OWASP Top 10 groups these flaws into a single risk category named <strong>Injection</strong>.</p>
 
     <!-- SVG: trust boundary diagram
          Teaching purpose: show the learner that the vulnerability appears specifically
@@ -242,7 +242,7 @@ $output = shell_exec("ping -c 4 " . $host);</code></pre>
 
     <div class="warning-box">
         <h4><i class="fas fa-exclamation-triangle"></i> A Common Mistake</h4>
-        <p>Checking input in the browser with JavaScript does nothing to stop this. Client-side validation can always be bypassed, so the shell only ever sees whatever the attacker actually sends to the server.</p>
+        <p>Checking input only in the browser with JavaScript does nothing to stop this. Validation that runs only in the browser, known as <strong>browser validation</strong>, can always be bypassed, so the shell still receives whatever the attacker actually sends to the server.</p>
     </div>
 </div>
 HTML;
@@ -257,36 +257,17 @@ $task_contents[4] = <<<'HTML'
         <thead>
             <tr>
                 <th>Operator</th>
+                <th>Name</th>
                 <th>Shell</th>
                 <th>Behavior</th>
             </tr>
         </thead>
         <tbody>
-            <tr>
-                <td><code>;</code></td>
-                <td>Linux/Unix</td>
-                <td>Runs the second command regardless of whether the first command succeeded.</td>
-            </tr>
-            <tr>
-                <td><code>&amp;&amp;</code></td>
-                <td>Linux/Unix</td>
-                <td>Runs the second command only if the first command succeeded.</td>
-            </tr>
-            <tr>
-                <td><code>||</code></td>
-                <td>Linux/Unix</td>
-                <td>Runs the second command only if the first command failed.</td>
-            </tr>
-            <tr>
-                <td><code>|</code></td>
-                <td>Linux/Unix</td>
-                <td>Sends the output of the first command as input to the second.</td>
-            </tr>
-            <tr>
-                <td><code>&amp;</code></td>
-                <td>Windows</td>
-                <td>Runs the second command after the first, similar to the semicolon on Linux.</td>
-            </tr>
+            <tr><td><code>;</code></td><td>semicolon</td><td>Linux/Unix</td><td>Runs the second command regardless of whether the first command succeeded.</td></tr>
+            <tr><td><code>&amp;&amp;</code></td><td>logical AND</td><td>Linux/Unix</td><td>Runs the second command only if the first command succeeded.</td></tr>
+            <tr><td><code>||</code></td><td>logical OR</td><td>Linux/Unix</td><td>Runs the second command only if the first command failed.</td></tr>
+            <tr><td><code>|</code></td><td>pipe</td><td>Linux/Unix</td><td>Sends the output of the first command as input to the second.</td></tr>
+            <tr><td><code>&amp;</code></td><td>ampersand</td><td>Windows</td><td>Runs the second command after the first, similar to the semicolon on Linux.</td></tr>
         </tbody>
     </table>
 
@@ -339,6 +320,8 @@ $task_contents[5] = <<<'HTML'
         <li>If unexpected output appears, the input is very likely an injection point.</li>
     </ul>
 
+    <p>Some tools try to defend themselves by rejecting a blacklist of known separator characters. Blacklists are fragile: if even one separator is left off the list, that operator still reaches the shell and the chaining works. When one operator is rejected, test the others one by one until you find the one the filter forgot.</p>
+
     <div class="success-box">
         <h4><i class="fas fa-check-circle"></i> Quick Testing Checklist</h4>
         <p>Baseline first. Inject a harmless command second. Compare outputs third. Escalate only once a difference confirms the vulnerability.</p>
@@ -381,7 +364,7 @@ $task_contents[7] = <<<'HTML'
 HTML;
 
 // ============================================================
-// END OF DATA — engine renders everything from here.
+// END OF DATA - engine renders everything from here.
 // ============================================================
 define('CYBRIXEN_ROOM_ENGINE', true);
 require_once '../../includes/room-engine.php';

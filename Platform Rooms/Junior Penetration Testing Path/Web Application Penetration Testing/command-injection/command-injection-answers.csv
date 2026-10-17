@@ -5,10 +5,10 @@ task2,q2,sanitization
 task2,q3,injection
 task3,q4,system
 task3,q5,concatenation
-task3,q6,client-side validation
-task4,q7,;
-task4,q8,&&
-task4,q9,|
+task3,q6,browser validation
+task4,q7,semicolon
+task4,q8,logical and
+task4,q9,pipe
 task5,q10,payload
 task5,q11,injection point
 task6,q12,CBX{command_injected}
