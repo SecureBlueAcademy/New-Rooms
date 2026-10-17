@@ -134,6 +134,21 @@ table.data td .sel { min-width: 110px; padding: 5px 8px; }
 </style>
 </head>
 <body>
+<div id="tutorial-overlay"></div>
+<div id="tutorial-spotlight"></div>
+<div id="tutorial-box" role="dialog" aria-modal="true" aria-labelledby="tut-title">
+    <div class="tut-step" id="tut-step"></div>
+    <h3 id="tut-title"></h3>
+    <p id="tut-text"></p>
+    <div class="tut-nav">
+        <button type="button" class="btn btn-small" id="tut-skip">Skip</button>
+        <div class="right">
+            <button type="button" class="btn btn-small" id="tut-prev">Back</button>
+            <button type="button" class="btn btn-small btn-primary" id="tut-next">Next</button>
+        </div>
+    </div>
+</div>
+
 <div class="wrap">
     <header class="page-header" id="page-header">
         <div>
@@ -193,7 +208,7 @@ table.data td .sel { min-width: 110px; padding: 5px 8px; }
                         <label class="field"><span>Title</span><input type="text" class="inp" id="spec-title" autocomplete="off" placeholder="Short detection title"></label>
                         <label class="field"><span>Owner</span><input type="text" class="inp" id="spec-owner" value="Detection Engineering" readonly></label>
                         <label class="field"><span>ATT&amp;CK technique</span>
-                            <select class="sel" id="spec-attack">
+                            <select class="sel" id="spec-technique">
                                 <option value="">Select a technique</option>
                                 <option value="T1105">T1105</option>
                                 <option value="T1140">T1140</option>
@@ -329,21 +344,6 @@ table.data td .sel { min-width: 110px; padding: 5px 8px; }
             <p id="feedback"></p>
             <div id="flag-area"><div class="section-label">Flag</div><div id="flag-output"></div></div>
         </aside>
-    </div>
-</div>
-
-<div id="tutorial-overlay"></div>
-<div id="tutorial-spotlight"></div>
-<div id="tutorial-box" role="dialog" aria-modal="true" aria-labelledby="tut-title">
-    <div class="tut-step" id="tut-step"></div>
-    <h3 id="tut-title"></h3>
-    <p id="tut-text"></p>
-    <div class="tut-nav">
-        <button type="button" class="btn btn-small" id="tut-skip">Skip</button>
-        <div class="right">
-            <button type="button" class="btn btn-small" id="tut-prev">Back</button>
-            <button type="button" class="btn btn-small btn-primary" id="tut-next">Next</button>
-        </div>
     </div>
 </div>
 
