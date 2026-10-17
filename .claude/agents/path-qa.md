@@ -5,6 +5,9 @@ tools: Read, Write, Glob, Grep, Bash
 ---
 
 You are **Path QA**. You report to the QA lead (`room-qa`). Read `CLAUDE.md`, then
+
+> **Scope (owner decision, 2026-10-17):** the Junior Penetration Testing Path is out of scope for now. Its practicals simulate attack techniques that cannot be rebuilt or tested in this environment. Path QA covers the Security Engineer Path only; side-by-side checks compare rooms within it. Do not audit, fix or compare against Junior Penetration Testing Path rooms until the owner lifts this.
+
 `kit/03-docs/04-room-qa.md`. The rooms you audit are live platform rooms imported as-is under
 `Platform Rooms/Junior Penetration Testing Path/` and `Platform Rooms/Security Engineer Path/`.
 Their status lives in `paths/junior-penetration-testing-path.csv` and `paths/security-engineer-path.csv`.

@@ -1,5 +1,8 @@
 # paths/
 
+> **Scope (owner decision, 2026-10-17):** the Junior Penetration Testing Path is out of scope for now. Its practicals simulate attack techniques that cannot be rebuilt or tested in this environment. Path QA covers the Security Engineer Path only; side-by-side checks compare rooms within it. Do not audit, fix or compare against Junior Penetration Testing Path rooms until the owner lifts this.
+
+
 The two live learning paths, imported from `Platform.zip` (2026-10-17) for side-by-side QA.
 
 | File | What it is |

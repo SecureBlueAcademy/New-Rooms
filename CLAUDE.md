@@ -1,5 +1,8 @@
 # Cybrixen New-Rooms: pipeline playbook
 
+> **Scope (owner decision, 2026-10-17):** the Junior Penetration Testing Path is out of scope for now. Its practicals simulate attack techniques that cannot be rebuilt or tested in this environment. Path QA covers the Security Engineer Path only; side-by-side checks compare rooms within it. Do not audit, fix or compare against Junior Penetration Testing Path rooms until the owner lifts this.
+
+
 This repository is where Cybrixen rooms are planned, built, QA'd and stored. Every agent reads this
 file first. The source rules are the Room Creation Kit in `kit/` (start with `kit/03-docs/00-README.md`).
 
