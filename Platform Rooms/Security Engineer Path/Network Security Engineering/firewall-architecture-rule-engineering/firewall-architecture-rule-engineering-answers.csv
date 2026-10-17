@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,stateful inspection
+task2,q2,deep packet inspection
+task3,q3,least privilege
+task3,q4,default deny
+task4,q5,shadow rule
+task4,q6,first match
+task5,q7,overly permissive
+task5,q8,lateral movement
+task6,q9,change management
+task6,q10,rule audit
+task7,q11,CBX{shadow_rule_exposed}
+task8,q12,complete

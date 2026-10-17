@@ -1,0 +1,12 @@
+# Filename: reconnaissance-answers.csv
+task1,q0,yes
+task2,q1,2015
+task2,q2,Austin
+task2,q3,2.361
+task2,q4,DigitalOcean
+task2,q5,firstname.lastname
+task2,q6,GlobalProtect
+task2,q7,Namecheap
+task2,q8,staging
+task2,q9,CBX{subdomain_exposed}
+task3,q10,complete

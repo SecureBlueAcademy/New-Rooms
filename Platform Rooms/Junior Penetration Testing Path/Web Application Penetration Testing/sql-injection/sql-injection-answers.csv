@@ -1,0 +1,12 @@
+task1,q0,yes
+task2,q1,quote
+task2,q2,concatenation
+task2,q3,parameterized queries
+task3,q4,error-based
+task3,q5,information disclosure
+task4,q6,blind
+task4,q7,boolean-based
+task5,q8,time-based
+task5,q9,SLEEP
+task6,q10,CBX{database_compromised}
+task7,q11,complete

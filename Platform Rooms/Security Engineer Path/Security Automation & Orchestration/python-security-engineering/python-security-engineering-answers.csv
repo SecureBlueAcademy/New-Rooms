@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,requests
+task2,q2,automation
+task3,q3,API key
+task3,q4,JSON
+task4,q5,regex
+task4,q6,parsing
+task5,q7,hashing
+task5,q8,chain of custody
+task6,q9,environment variables
+task6,q10,logging
+task7,q11,CBX{intrusion_traced}
+task8,q12,complete

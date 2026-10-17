@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,defense in depth
+task2,q2,single point of failure
+task3,q3,least privilege
+task3,q4,blast radius
+task4,q5,fail-secure
+task4,q6,fail-open
+task5,q7,separation of duties
+task5,q8,dual control
+task6,q9,economy of mechanism
+task6,q10,attack surface
+task7,q11,CBX{architecture_hardened}
+task8,q12,complete

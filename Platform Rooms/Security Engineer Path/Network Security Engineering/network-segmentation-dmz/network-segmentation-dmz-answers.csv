@@ -1,0 +1,14 @@
+task1,q0,yes
+task2,q1,blast radius
+task2,q2,least privilege
+task3,q3,DMZ
+task3,q4,web server
+task3,q5,internal network
+task4,q6,Purdue Model
+task4,q7,core layer
+task5,q8,VLAN hopping
+task5,q9,private VLANs
+task6,q10,any-any rule
+task6,q11,jump host
+task7,q12,CBX{zones_secured}
+task8,q13,complete

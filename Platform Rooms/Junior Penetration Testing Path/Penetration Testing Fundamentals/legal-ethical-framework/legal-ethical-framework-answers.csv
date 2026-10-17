@@ -1,0 +1,11 @@
+task1,q0,yes
+task2,q1,unauthorised
+task2,q2,written authorisation
+task3,q3,Computer Misuse Act
+task3,q4,CFAA
+task4,q5,scope
+task4,q6,rules of engagement
+task5,q7,out of scope
+task5,q8,NDA
+task6,q9,CBX{scope_confirmed}
+task7,q10,complete

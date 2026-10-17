@@ -1,0 +1,16 @@
+# File: privileged-access-management-answers.csv
+task1,q0,yes
+task2,q1,Privileged Access Management
+task2,q2,privileged account
+task2,q3,lateral movement
+task3,q4,vault
+task3,q5,password rotation
+task4,q6,Just-in-Time
+task4,q7,Zero Standing Privilege
+task5,q8,session recording
+task5,q9,Accounting
+task6,q10,service account
+task7,q11,Tier 0
+task7,q12,break-glass
+task8,q13,CBX{vault_credential_rotated}
+task9,q14,complete

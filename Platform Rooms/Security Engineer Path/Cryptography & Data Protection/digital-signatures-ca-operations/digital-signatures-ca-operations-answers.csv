@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,Private key
+task2,q2,Public key
+task3,q3,Root CA
+task3,q4,Intermediate CA
+task4,q5,Extended Key Usage
+task4,q6,397 days
+task5,q7,Intermediate
+task5,q8,OCSP
+task6,q9,Merkle tree
+task6,q10,Detection
+task7,q11,HTTP-01
+task7,q12,DNS-01
+task8,q13,CBX{chain_of_trust_verified}
+task9,q14,complete

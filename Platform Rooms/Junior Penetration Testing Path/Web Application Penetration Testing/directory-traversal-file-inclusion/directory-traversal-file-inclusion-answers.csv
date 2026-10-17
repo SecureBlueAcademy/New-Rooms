@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,path traversal
+task2,q2,dot dot slash
+task2,q3,web root
+task3,q4,local file inclusion
+task3,q5,include
+task3,q6,configuration file
+task4,q7,remote file inclusion
+task4,q8,http
+task5,q9,log poisoning
+task5,q10,user-agent
+task6,q11,CBX{traversal_bypassed}
+task7,q12,complete

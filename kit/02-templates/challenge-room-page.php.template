@@ -1,0 +1,152 @@
+<?php
+// {{SLUG}}.php
+// CHALLENGE ROOM THEORY PAGE TEMPLATE (Cybrixen current format, see 03-docs/06-file-and-format-reference.md)
+// Exactly 3 tasks: Introduction, one Investigation task with 9 questions (q9 = flag), Conclusion.
+// Target size about 10 to 12 KB. No em dashes. No Free/Paid wording. Difficulty Expert for Case rooms.
+
+// ========================
+// 1. ROOM CONFIGURATION
+// ========================
+$room_config = [
+    'id'              => '{{SLUG}}',
+    'title'           => '{{TITLE}}',                          // Case rooms start with "Case: "
+    'description'     => '{{ONE_SENTENCE_DESCRIPTION}}',
+    'icon'            => 'fas {{FONTAWESOME_ICON}}',
+    'banner'          => '../../assets/{{BANNER_FILE}}',
+    'difficulty'      => '{{DIFFICULTY}}',                     // Beginner | Intermediate | Expert (never Advanced)
+    'estimated_time'  => '{{EST_TIME}} minutes',
+    'prerequisites'   => ['{{PREREQUISITE_ROOM_TITLE}}'],
+    'learning_objectives' => [
+        '{{OBJECTIVE_1}}',
+        '{{OBJECTIVE_2}}',
+        '{{OBJECTIVE_3}}',
+        'Submit a CBX flag that encodes the decisive investigative proof',
+    ],
+];
+
+// ========================
+// 2. ANSWERS FILE PATH
+// ========================
+$answers_file = __DIR__ . '/{{SLUG}}-answers.csv';
+
+// ========================
+// 3. SIDEBAR TASK LIST
+// ========================
+$room_tasks = [
+    ['id' => 'task1', 'title' => 'Introduction'],
+    ['id' => 'task2', 'title' => '{{INVESTIGATION_TASK_TITLE}}'],   // for example "Spooler Abuse Investigation"
+    ['id' => 'task3', 'title' => 'Conclusion'],
+];
+
+// ========================
+// 4. JAVASCRIPT CONFIG
+// ========================
+$js_config = [
+    'storage_key'          => '{{SLUG_UNDERSCORED}}_progress',
+    'instagram_takeaways'  => [
+        '✓ {{TAKEAWAY_1}}',
+        '✓ {{TAKEAWAY_2}}',
+        '✓ {{TAKEAWAY_3}}',
+        '✓ {{TAKEAWAY_4}}',
+    ],
+];
+
+// ========================
+// 5. QUESTIONS DATA
+// ========================
+// Question text must never print an answer (no source IP, account, file, host or count in the text).
+// State the answer format: "(HH:MM:SS, UTC)", "(answer in digits)", "(username only, for example j.doe)".
+$task_questions_data = [
+    'task1' => [
+        ['id' => 'q0', 'text' => 'Type <strong>"yes"</strong> to complete this task.'],
+    ],
+    'task2' => [
+        ['id' => 'q1', 'text' => '{{Q1_ENTRY_POINT e.g. Which internal IP address made the first accepted request?}}'],
+        ['id' => 'q2', 'text' => '{{Q2_TECHNIQUE_OR_OPERATION}}'],
+        ['id' => 'q3', 'text' => '{{Q3_ACCOUNT}} (username only, for example j.doe)'],
+        ['id' => 'q4', 'text' => '{{Q4_ARTEFACT}}'],
+        ['id' => 'q5', 'text' => '{{Q5_PROCESS_OR_FOLLOW_ON}}'],
+        ['id' => 'q6', 'text' => '{{Q6_TIME}} (HH:MM:SS, UTC)'],
+        ['id' => 'q7', 'text' => '{{Q7_IMPACT}}'],
+        ['id' => 'q8', 'text' => '{{Q8_SCOPE_COUNT}} (answer in digits)'],
+        ['id' => 'q9', 'text' => 'Enter the flag shown after the {{PROOF_NAME}} and response plan are accepted.'],
+    ],
+    'task3' => [
+        ['id' => 'q10', 'text' => 'Type <strong>"complete"</strong> to finish this room.'],
+    ],
+];
+
+// ========================
+// 6. TASK CONTENT BLOCKS
+// ========================
+
+// TASK 1: Introduction (the brief)
+// The brief must teach every order boundary the console grades (for example "collect before change").
+$task_contents[1] = <<<'HTML'
+<div class="content-block">
+    <p>{{TICKET_PARAGRAPH: ticket id, open date and time (UTC), what triggered it}}</p>
+
+    <h3>Evidence Pack</h3>
+    <table class="content-table">
+        <thead><tr><th>Source</th><th>Hosts</th><th>What it shows</th></tr></thead>
+        <tbody>
+            <tr><td>{{LOG_SOURCE_1}}</td><td>{{HOSTS}}</td><td>{{DESCRIPTION}}</td></tr>
+            <tr><td>{{LOG_SOURCE_2}}</td><td>{{HOSTS}}</td><td>{{DESCRIPTION}}</td></tr>
+            <tr><td>{{LOG_SOURCE_3}}</td><td>{{HOSTS}}</td><td>{{DESCRIPTION}}</td></tr>
+            <tr><td>Host inventory</td><td>All</td><td>Hostname, IP, OS and build or patch level</td></tr>
+            <tr><td>Response console</td><td>n/a</td><td>Proof fields and ordered response plan</td></tr>
+        </tbody>
+    </table>
+
+    <h3>Response Rules</h3>
+    <ol>
+        <li>{{TAUGHT_ORDER_RULE_1 e.g. Collect and hash evidence before any change.}}</li>
+        <li>{{TAUGHT_ORDER_RULE_2 e.g. Contain the source host and block its address (either order).}}</li>
+        <li>{{TAUGHT_ORDER_RULE_3}}</li>
+    </ol>
+
+    <p>All times are UTC.</p>
+</div>
+HTML;
+
+// TASK 2: Investigation
+$task_contents[2] = <<<'HTML'
+<div class="content-block">
+    <p>{{INVESTIGATION_INSTRUCTIONS: open the analyser, which panels exist, what to prove. No answers, no hints that name a row.}}</p>
+
+    <div class="practical-launch-wrapper">
+        <a href="{{SLUG}}-practical.php" target="_blank" class="practical-launch-btn">
+            <span class="launch-icon">⚡</span>
+            <span class="launch-text">Launch {{PRACTICAL_TOOL_NAME}}</span>
+            <span class="launch-arrow">→</span>
+        </a>
+        <p class="launch-note">Opens in a new tab. Answer the questions below from the evidence, then submit the proof and plan in the console to reveal the flag.</p>
+    </div>
+</div>
+HTML;
+
+// TASK 3: Conclusion
+$task_contents[3] = <<<'HTML'
+<div class="content-block">
+    <p>{{LIFECYCLE_RECAP: how the attack worked end to end, which artefacts proved each step}}</p>
+
+    <h3>What Separated Signal from Noise</h3>
+    <ul>
+        <li>{{DECOY_LESSON_1}}</li>
+        <li>{{DECOY_LESSON_2}}</li>
+    </ul>
+
+    <h3>Response Summary</h3>
+    <ol>
+        <li>{{RESPONSE_STEP_1}}</li>
+        <li>{{RESPONSE_STEP_2}}</li>
+        <li>{{RESPONSE_STEP_3}}</li>
+    </ol>
+</div>
+HTML;
+
+// ============================================================
+// END OF DATA
+// ============================================================
+define('CYBRIXEN_ROOM_ENGINE', true);
+require_once '../../includes/room-engine.php';

@@ -1,0 +1,11 @@
+task1,q0,yes
+task2,q1,SOAR
+task2,q2,playbook
+task3,q3,Manual
+task3,q4,Semi-automated
+task4,q5,MTTR
+task4,q6,analyst hours
+task5,q7,Human-in-the-loop
+task5,q8,blast radius
+task6,q9,CBX{automation_calibrated}
+task7,q11,complete

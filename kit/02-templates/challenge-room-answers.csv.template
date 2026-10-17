@@ -1,0 +1,12 @@
+# FILENAME: {{SLUG}}-answers.csv
+task1,q0,yes
+task2,q1,{{ANSWER_Q1}}
+task2,q2,{{ANSWER_Q2}}
+task2,q3,{{ANSWER_Q3}}
+task2,q4,{{ANSWER_Q4}}
+task2,q5,{{ANSWER_Q5}}
+task2,q6,{{ANSWER_Q6}}
+task2,q7,{{ANSWER_Q7}}
+task2,q8,{{ANSWER_Q8}}
+task2,q9,{{FLAG}}
+task3,q10,complete

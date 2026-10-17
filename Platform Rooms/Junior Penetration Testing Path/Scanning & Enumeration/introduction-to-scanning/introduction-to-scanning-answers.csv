@@ -1,0 +1,12 @@
+task1,q0,yes
+task2,q1,network scanning
+task2,q2,port scanning
+task2,q3,vulnerability scanning
+task3,q4,SYN
+task3,q5,three
+task4,q6,RST
+task4,q7,FIN
+task5,q8,SYN scan
+task5,q9,half-open
+task6,q10,CBX{handshake_avoided}
+task7,q11,complete

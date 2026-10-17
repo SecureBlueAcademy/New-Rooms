@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,identity store
+task2,q2,authorization engine
+task2,q3,lifecycle management
+task3,q4,role-based access control
+task3,q5,permissions
+task3,q6,role explosion
+task4,q7,attribute-based access control
+task4,q8,environmental attribute
+task5,q9,policy-based access control
+task5,q10,compliance
+task6,q11,CBX{access_engine_calibrated}
+task7,q12,complete

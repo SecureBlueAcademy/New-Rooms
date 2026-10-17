@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,From header
+task2,q2,Business Email Compromise
+task3,q3,-all
+task3,q4,include
+task4,q5,asymmetric
+task4,q6,selector
+task5,q7,rua
+task5,q8,reject
+task5,q9,From domain
+task6,q10,logo
+task6,q11,TLS
+task7,q12,sandboxing
+task8,q13,CBX{domain_authenticated}
+task9,q14,complete

@@ -1,0 +1,11 @@
+task1,q0,yes
+task2,q1,actionable recommendation
+task2,q2,parameterized queries
+task3,q3,7 days
+task3,q4,severity
+task3,q5,business context
+task4,q6,workaround
+task4,q7,accepted risk
+task4,q8,verification testing
+task5,q9,CBX{remediation_verified}
+task6,q10,complete

@@ -1,0 +1,14 @@
+task1,q0,yes
+task2,q1,runtime protection
+task2,q2,static analysis
+task2,q3,serverless
+task3,q4,file integrity monitoring
+task3,q5,detect
+task4,q6,CVSS
+task4,q7,exposure
+task5,q8,JIT
+task5,q9,privileged access
+task6,q10,CSPM
+task6,q11,policy-as-code
+task7,q12,CBX{integrity_violated}
+task8,q13,complete

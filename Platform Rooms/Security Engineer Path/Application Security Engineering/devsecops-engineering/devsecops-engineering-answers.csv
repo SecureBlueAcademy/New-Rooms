@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,entropy analysis
+task2,q2,pre-commit hook
+task3,q3,Static Application Security Testing
+task3,q4,source code
+task4,q5,SCA
+task4,q6,transitive dependency
+task5,q7,Dynamic Application Security Testing
+task5,q8,black box testing
+task6,q9,IaC scanning
+task6,q10,logging
+task7,q11,CBX{gate_secured}
+task8,q12,complete

@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,brute force
+task2,q2,keyspace
+task3,q3,credential stuffing
+task3,q4,password reuse
+task4,q5,default credentials
+task4,q6,changed
+task5,q7,account lockout
+task5,q8,rate limiting
+task6,q9,encoding
+task6,q10,randomness
+task7,q11,CBX{session_forged}
+task8,q12,complete

@@ -1,0 +1,14 @@
+task1,q0,yes
+task2,q1,AEAD
+task2,q2,stream cipher
+task3,q3,private key
+task3,q4,factoring
+task4,q5,avalanche effect
+task4,q6,collision resistance
+task5,q7,secret key
+task5,q8,HMAC
+task6,q9,private key
+task6,q10,ECB
+task6,q11,non-repudiation
+task7,q12,CBX{semantic_security_achieved}
+task8,q13,complete

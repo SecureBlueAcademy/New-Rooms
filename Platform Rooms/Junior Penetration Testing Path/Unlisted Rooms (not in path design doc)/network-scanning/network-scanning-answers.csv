@@ -1,0 +1,10 @@
+task1,q0,yes
+task2,q1,4
+task2,q2,443
+task2,q3,vsftpd 2.3.4
+task2,q4,CVE-2011-2523
+task2,q5,53
+task2,q6,Windows Server 2016
+task2,q7,10.50.60.5
+task2,q8,CBX{scan_reconstructed}
+task3,q9,complete

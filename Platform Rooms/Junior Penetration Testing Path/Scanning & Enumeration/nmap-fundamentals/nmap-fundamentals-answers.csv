@@ -1,0 +1,14 @@
+task1,q0,yes
+task2,q1,-sS
+task2,q2,-sU
+task2,q3,TCP Connect scan
+task3,q4,T3
+task3,q5,T5
+task3,q6,-T
+task4,q7,-oX
+task4,q8,-oA
+task5,q9,-O
+task5,q10,-sV
+task5,q11,-p
+task6,q12,CBX{network_mapped}
+task7,q13,complete

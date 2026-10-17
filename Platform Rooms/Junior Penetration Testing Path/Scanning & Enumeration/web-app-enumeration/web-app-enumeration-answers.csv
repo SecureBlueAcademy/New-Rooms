@@ -1,0 +1,14 @@
+task1,q0,yes
+task2,q1,brute forcing
+task2,q2,wordlist
+task2,q3,403
+task3,q4,unlinked page
+task3,q5,robots.txt
+task4,q6,/admin
+task4,q7,brute force attack
+task5,q8,.bak
+task5,q9,configuration file
+task6,q10,v1
+task6,q11,JavaScript file
+task7,q12,CBX{endpoints_mapped}
+task8,q13,complete

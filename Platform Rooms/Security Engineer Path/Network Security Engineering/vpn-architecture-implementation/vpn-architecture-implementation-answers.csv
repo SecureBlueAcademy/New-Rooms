@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,site-to-site
+task2,q2,remote access
+task2,q3,VPN gateway
+task3,q4,network layer
+task3,q5,TLS VPN
+task3,q6,OpenVPN
+task4,q7,split tunnelling
+task4,q8,full tunnelling
+task5,q9,always-on VPN
+task5,q10,certificate-based authentication
+task6,q11,Zero Trust
+task6,q12,least privilege
+task7,q13,CBX{gateway_hardened}
+task8,q14,complete

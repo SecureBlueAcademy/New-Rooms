@@ -1,0 +1,14 @@
+task1,q0,yes
+task2,q1,threat modeling
+task2,q2,design
+task3,q3,spoofing
+task3,q4,information disclosure
+task3,q5,repudiation
+task4,q6,seven
+task4,q7,business risk
+task5,q8,AND
+task5,q9,goal
+task6,q10,trust boundary
+task6,q11,likelihood
+task7,q12,CBX{register_prioritized}
+task8,q13,complete

@@ -1,0 +1,244 @@
+<?php
+// {{SLUG}}-practical.php
+// LEARNING ROOM PRACTICAL TEMPLATE: self-contained interactive lab (HTML + CSS + JS in one file).
+// Browser-only PHP simulation: all data is embedded as JS, no live targets, no real shells or models.
+// Replace every {{PLACEHOLDER}}. Seal the flag with 02-templates/seal_flag.py, never paste it in plain text.
+// Rules: wrong answers show plain "Not yet." only (no counters, no per-field marks, no Hint button).
+// No em dashes. Responsive (no fixed widths that break below 900px). Reset restores the starting state.
+$page_title = '{{PRACTICAL_TOOL_NAME}}';
+?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title><?= htmlspecialchars($page_title) ?></title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root {
+    --bg-primary: #0b0f1a; --bg-secondary: #12182b; --bg-surface: #161d36;
+    --text-primary: #e6e9f2; --text-secondary: #aab0d6; --text-muted: #7c83b6;
+    --accent-primary: #6ae3ff; --accent-secondary: #8b7bff;
+    --success: #3dff9a; --error: #ff5c5c; --warning: #ffd36a;
+    --border-default: rgba(255,255,255,0.08); --glow-accent: 0 0 12px rgba(106,227,255,0.35);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { background: var(--bg-primary); color: var(--text-primary); font-family: "Inter", system-ui, sans-serif; line-height: 1.6; min-height: 100vh; }
+html.tutorial-active, body.tutorial-active { overflow: hidden; }
+code, pre, .mono { font-family: "JetBrains Mono", monospace; }
+.wrap { max-width: 1200px; margin: 0 auto; padding: 24px 20px 80px; }
+.page-header { display: flex; justify-content: space-between; align-items: flex-start; gap: 20px; padding: 22px 24px;
+    background: linear-gradient(135deg, var(--bg-secondary), var(--bg-surface)); border: 1px solid var(--border-default); border-radius: 14px; margin-bottom: 20px; }
+.page-header h1 { font-size: 1.6rem; color: var(--accent-primary); }
+.page-header p { color: var(--text-secondary); font-size: 0.95rem; }
+.btn, .btn-tutorial { background: transparent; color: var(--accent-primary); border: 1px solid var(--accent-primary); border-radius: 8px;
+    padding: 9px 16px; font: 600 0.9rem "Inter", sans-serif; cursor: pointer; }
+.btn:hover, .btn-tutorial:hover, .btn:focus-visible { box-shadow: var(--glow-accent); outline: none; }
+.btn-primary { background: var(--accent-primary); color: var(--bg-primary); }
+.card { background: var(--bg-secondary); border: 1px solid var(--border-default); border-radius: 14px; padding: 22px 24px; margin-bottom: 20px; }
+.card h2 { font-size: 1.1rem; margin-bottom: 10px; }
+.card p, .card li { color: var(--text-secondary); font-size: 0.95rem; }
+.card ol { margin: 8px 0 4px 20px; }
+.section-label { font-size: 0.72rem; letter-spacing: .12em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; font-weight: 600; }
+.env-layout { display: grid; grid-template-columns: minmax(0, 1fr) 340px; gap: 20px; align-items: start; }
+.env-layout > * { min-width: 0; }
+@media (max-width: 900px) { .env-layout { grid-template-columns: 1fr; } .page-header { flex-direction: column; } }
+.tool-area { background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: 12px; padding: 18px; min-height: 320px; }
+.term { background: #070a14; border: 1px solid var(--border-default); border-radius: 8px; padding: 14px; font-size: 0.8rem;
+    overflow: auto; white-space: pre; max-height: 420px; color: #cfd6f5; }
+.inp { width: 100%; background: #070a14; color: var(--text-primary); border: 1px solid var(--border-default); border-radius: 8px; padding: 9px 12px; font: 500 0.9rem "JetBrains Mono", monospace; }
+.field { display: block; margin-bottom: 12px; font-size: 0.85rem; color: var(--text-muted); }
+.deck { display: flex; flex-wrap: wrap; gap: 8px; margin: 10px 0; }
+.action-card { background: var(--bg-surface); border: 1px solid var(--border-default); border-radius: 8px; padding: 8px 12px; cursor: pointer; font-size: 0.85rem; color: var(--text-secondary); }
+.action-card.chosen { border-color: var(--accent-primary); color: var(--text-primary); }
+.log { list-style: none; font-size: 0.85rem; margin-top: 10px; }
+.log li { padding: 4px 0; border-bottom: 1px solid var(--border-default); }
+.log li.bad { color: var(--error); } .log li.good { color: var(--success); }
+#flag-area { display: none; margin-top: 14px; padding: 14px; border: 1px solid var(--success); border-radius: 10px; }
+#flag-area.show { display: block; }
+#flag-output { color: var(--success); font: 700 1.05rem "JetBrains Mono", monospace; }
+/* tutorial overlay */
+#tutorial { position: fixed; inset: 0; background: rgba(5,8,16,0.82); display: none; align-items: center; justify-content: center; z-index: 50; padding: 20px; }
+#tutorial.show { display: flex; }
+.tut-box { max-width: 520px; width: 100%; background: var(--bg-secondary); border: 1px solid var(--accent-primary); border-radius: 14px; padding: 22px; }
+.tut-box h3 { color: var(--accent-primary); margin-bottom: 8px; }
+.tut-nav { display: flex; justify-content: space-between; margin-top: 16px; gap: 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+    <header class="page-header">
+        <div>
+            <h1>{{PRACTICAL_TOOL_NAME}}</h1>
+            <p>{{ONE_LINE_TOOL_DESCRIPTION}}</p>
+        </div>
+        <button type="button" class="btn-tutorial" id="btn-tutorial">View Tutorial</button>
+    </header>
+
+    <section class="card" id="mission-brief">
+        <div class="section-label">Mission briefing</div>
+        <h2>{{MISSION_TITLE}}</h2>
+        <p>{{MISSION_DESCRIPTION: scenario, hosts, what the learner must achieve. Describe the goal, not the solution.}}</p>
+        <ol>
+            <li>{{STEP_1}}</li>
+            <li>{{STEP_2}}</li>
+            <li>{{STEP_3}}</li>
+        </ol>
+    </section>
+
+    <div class="env-layout">
+        <section class="tool-area" id="tool-area">
+            <div class="section-label">{{TOOL_AREA_LABEL}}</div>
+            <!-- TOOL AREA: build the simulated tool here (viewer, simulated app, decision deck, decoder).
+                 Data comes from LAB_DATA below. Every key item needs a benign decoy. -->
+            <div class="term" id="tool-output">{{INITIAL_TOOL_OUTPUT}}</div>
+            <div class="deck" id="deck"></div>
+            <p class="note" style="font-size:.82rem;color:var(--text-muted)">Click cards to add them to your plan in order. Use Reset to start again.</p>
+            <ul class="log" id="log"></ul>
+        </section>
+
+        <aside class="card" id="submit-card">
+            <div class="section-label">Submit</div>
+            <label class="field">{{PROOF_FIELD_1_LABEL}}<input type="text" id="ans-1" class="inp" autocomplete="off"></label>
+            <label class="field">{{PROOF_FIELD_2_LABEL}}<input type="text" id="ans-2" class="inp" autocomplete="off"></label>
+            <div style="display:flex;gap:8px;flex-wrap:wrap">
+                <button type="button" class="btn btn-primary" id="btn-submit">Submit</button>
+                <button type="button" class="btn" id="btn-reset">Reset</button>
+            </div>
+            <p id="feedback" style="margin-top:10px;font-size:.9rem"></p>
+            <div id="flag-area"><div class="section-label">Flag</div><div id="flag-output"></div></div>
+        </aside>
+    </div>
+</div>
+
+<div id="tutorial" role="dialog" aria-modal="true" aria-labelledby="tut-title">
+    <div class="tut-box">
+        <h3 id="tut-title"></h3>
+        <p id="tut-text"></p>
+        <div class="tut-nav">
+            <button type="button" class="btn" id="tut-prev">Back</button>
+            <button type="button" class="btn btn-primary" id="tut-next">Next</button>
+        </div>
+    </div>
+</div>
+
+<script>
+(function () {
+    'use strict';
+    var $ = function (id) { return document.getElementById(id); };
+
+    // ===== LAB DATA (synthetic only: cbx.lab, RFC 5737 / RFC 1918 addresses) =====
+    var LAB_DATA = {
+        cards: [
+            // {id:'c1', text:'{{ACTION_CARD_TEXT}}'}, include trap cards; order is shuffled at load
+            { id: 'c1', text: '{{CARD_1}}' },
+            { id: 'c2', text: '{{CARD_2}}' },
+            { id: 'c3', text: '{{TRAP_CARD_1}}' },
+            { id: 'c4', text: '{{CARD_3}}' }
+        ],
+        // graded order: only boundaries taught in the theory page; cards inside one step may be in any order
+        steps: [['c1'], ['c2', 'c4']],
+        traps: ['c3'],
+        // optional consequence lines, only for taught order boundaries (never name the right card)
+        consequence: { 'c3': '{{CONSEQUENCE_LINE_FOR_TRAP}}' }
+    };
+    var CHECK_HASH = '{{CHECK_HASH_FROM_seal_flag.py}}';
+    var SEALED_FLAG_HEX = '{{SEALED_FLAG_HEX_FROM_seal_flag.py}}';
+    var TUTORIAL_KEY = '{{SLUG_UNDERSCORED}}_tutorial_seen';
+    var TUTORIAL = [
+        { t: 'Welcome', x: '{{TUTORIAL_STEP_1: what this tool is}}' },
+        { t: 'Read the evidence', x: '{{TUTORIAL_STEP_2: how to use the tool area}}' },
+        { t: 'Build your plan', x: '{{TUTORIAL_STEP_3: how cards and Reset work}}' },
+        { t: 'Submit', x: '{{TUTORIAL_STEP_4: what to enter and where the flag appears}}' }
+    ];
+
+    // ===== FLAG SEAL (do not edit) =====
+    function cyrb53(str, seed) {
+        var h1 = 0xdeadbeef ^ seed, h2 = 0x41c6ce57 ^ seed;
+        for (var i = 0; i < str.length; i++) {
+            var ch = str.charCodeAt(i);
+            h1 = Math.imul(h1 ^ ch, 2654435761); h2 = Math.imul(h2 ^ ch, 1597334677);
+        }
+        h1 = Math.imul(h1 ^ (h1 >>> 16), 2246822507) ^ Math.imul(h2 ^ (h2 >>> 13), 3266489909);
+        h2 = Math.imul(h2 ^ (h2 >>> 16), 2246822507) ^ Math.imul(h1 ^ (h1 >>> 13), 3266489909);
+        return 4294967296 * (2097151 & h2) + (h1 >>> 0);
+    }
+    function norm(s) { return String(s).trim().toLowerCase().split(/\s+/).join(' '); }
+    function unseal(hex, key) {
+        var out = '';
+        for (var i = 0; i < hex.length; i += 2) {
+            out += String.fromCharCode(parseInt(hex.substr(i, 2), 16) ^ (cyrb53(key, i / 2) % 256));
+        }
+        return out;
+    }
+
+    // ===== PLAN DECK =====
+    var plan = [];
+    function shuffle(a) { for (var i = a.length - 1; i > 0; i--) { var j = Math.floor(Math.random() * (i + 1)); var t = a[i]; a[i] = a[j]; a[j] = t; } return a; }
+    function log(msg, cls) { var li = document.createElement('li'); li.textContent = msg; if (cls) li.className = cls; $('log').appendChild(li); }
+    function renderDeck() {
+        var deck = $('deck'); deck.innerHTML = '';
+        shuffle(LAB_DATA.cards.slice()).forEach(function (c) {
+            var b = document.createElement('button');
+            b.type = 'button'; b.className = 'action-card'; b.textContent = c.text; b.dataset.id = c.id;
+            b.addEventListener('click', function () {
+                if (plan.indexOf(c.id) !== -1) return;
+                plan.push(c.id); b.classList.add('chosen'); log((plan.length) + '. ' + c.text);
+                if (LAB_DATA.consequence[c.id]) log(LAB_DATA.consequence[c.id], 'bad');
+            });
+            deck.appendChild(b);
+        });
+    }
+    function planIsValid() {
+        if (plan.some(function (id) { return LAB_DATA.traps.indexOf(id) !== -1; })) return false;
+        var flat = []; LAB_DATA.steps.forEach(function (s) { flat = flat.concat(s); });
+        if (plan.length !== flat.length) return false;
+        var pos = 0;
+        for (var s = 0; s < LAB_DATA.steps.length; s++) {
+            var chunk = plan.slice(pos, pos + LAB_DATA.steps[s].length);
+            if (!LAB_DATA.steps[s].every(function (id) { return chunk.indexOf(id) !== -1; })) return false;
+            pos += LAB_DATA.steps[s].length;
+        }
+        return true;
+    }
+    function reset() {
+        plan = []; $('log').innerHTML = ''; $('feedback').textContent = '';
+        $('ans-1').value = ''; $('ans-2').value = '';
+        $('flag-area').classList.remove('show'); $('flag-output').textContent = '';
+        renderDeck();
+    }
+    function submit() {
+        var key = [norm($('ans-1').value), norm($('ans-2').value)].join('|');
+        if (cyrb53(key, 7).toString(16) !== CHECK_HASH || !planIsValid()) {
+            $('feedback').textContent = 'Not yet.'; $('feedback').style.color = 'var(--error)'; return;
+        }
+        $('feedback').textContent = 'Accepted.'; $('feedback').style.color = 'var(--success)';
+        $('flag-output').textContent = unseal(SEALED_FLAG_HEX, key); $('flag-area').classList.add('show');
+    }
+
+    // ===== TUTORIAL =====
+    var tStep = 0;
+    function showTut(on) {
+        $('tutorial').classList.toggle('show', on);
+        document.documentElement.classList.toggle('tutorial-active', on);
+        document.body.classList.toggle('tutorial-active', on);
+        if (on) drawTut(); else { try { localStorage.setItem(TUTORIAL_KEY, '1'); } catch (e) {} }
+    }
+    function drawTut() {
+        $('tut-title').textContent = TUTORIAL[tStep].t; $('tut-text').textContent = TUTORIAL[tStep].x;
+        $('tut-prev').disabled = tStep === 0; $('tut-next').textContent = tStep === TUTORIAL.length - 1 ? 'Finish' : 'Next';
+    }
+    $('tut-prev').addEventListener('click', function () { if (tStep > 0) { tStep--; drawTut(); } });
+    $('tut-next').addEventListener('click', function () { if (tStep < TUTORIAL.length - 1) { tStep++; drawTut(); } else showTut(false); });
+    $('btn-tutorial').addEventListener('click', function () { tStep = 0; showTut(true); });
+    document.addEventListener('keydown', function (e) { if (e.key === 'Escape') showTut(false); });
+
+    $('btn-submit').addEventListener('click', submit);
+    $('btn-reset').addEventListener('click', reset);
+    renderDeck();
+    var seen = false; try { seen = localStorage.getItem(TUTORIAL_KEY) === '1'; } catch (e) {}
+    if (!seen) showTut(true);
+})();
+</script>
+</body>
+</html>

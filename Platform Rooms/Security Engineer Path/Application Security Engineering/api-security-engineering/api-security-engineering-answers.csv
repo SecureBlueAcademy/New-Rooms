@@ -1,0 +1,16 @@
+# api-security-engineering-answers.csv
+task1,q0,yes
+task2,q1,BOLA
+task2,q2,Excessive Data Exposure
+task3,q3,API Gateway
+task3,q4,Gateway bypass
+task4,q5,Scope
+task4,q6,Least Privilege
+task5,q7,Token bucket
+task5,q8,Fixed window
+task6,q9,Mass assignment
+task6,q10,Whitelisting
+task7,q11,Shadow API
+task7,q12,Zombie API
+task8,q13,CBX{gateway_hardened}
+task9,q14,complete

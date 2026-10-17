@@ -1,0 +1,12 @@
+task1,q0,yes
+task2,q1,quantitative
+task2,q2,qualitative
+task2,q3,likelihood and impact
+task3,q4,FAIR
+task3,q5,Annualized Loss Expectancy
+task4,q6,inherent risk
+task4,q7,residual risk
+task5,q8,business impact
+task5,q9,regulatory exposure
+task6,q10,CBX{risk_register_approved}
+task7,q11,complete

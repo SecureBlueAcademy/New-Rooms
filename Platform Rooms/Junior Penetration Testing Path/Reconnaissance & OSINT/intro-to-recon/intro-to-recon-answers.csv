@@ -1,0 +1,12 @@
+task1,q0,yes
+task2,q1,passive
+task2,q2,active
+task2,q3,active
+task3,q4,authorization
+task3,q5,detection
+task4,q6,plan
+task4,q7,collect
+task4,q8,act
+task5,q9,continuous
+task6,q10,CBX{intel_compiled}
+task7,q11,complete

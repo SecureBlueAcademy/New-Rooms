@@ -1,0 +1,14 @@
+task1,q0,yes
+task2,q1,Contextual
+task2,q2,Business attribute
+task2,q3,Physical
+task3,q4,ADM
+task3,q5,Checkpoints
+task4,q6,Patterns
+task4,q7,Data
+task5,q8,TOGAF
+task5,q9,OSA
+task6,q10,Business attribute
+task6,q11,Control objective
+task7,q12,CBX{framework_selected}
+task8,q13,complete

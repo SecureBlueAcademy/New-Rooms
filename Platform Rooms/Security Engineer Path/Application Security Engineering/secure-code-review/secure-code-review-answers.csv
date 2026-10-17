@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,trust boundary
+task2,q2,entry point
+task2,q3,penetration testing
+task3,q4,data flow
+task3,q5,sink
+task3,q6,grep
+task4,q7,SQL injection
+task4,q8,type juggling
+task4,q9,insecure deserialization
+task5,q10,false positive
+task5,q11,CodeQL
+task5,q12,Semgrep
+task6,q13,CBX{vulnerabilities_flagged}
+task7,q14,complete

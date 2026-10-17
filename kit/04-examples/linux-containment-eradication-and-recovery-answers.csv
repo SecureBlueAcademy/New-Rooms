@@ -1,0 +1,17 @@
+# FILENAME: linux-containment-eradication-and-recovery-answers.csv
+task1,q0,yes
+task2,q1,nft
+task2,q2,Reboot
+task2,q3,mask
+task3,q4,Collection hash
+task3,q5,Block C2 egress
+task3,q6,5
+task4,q7,Systemd unit
+task4,q8,debsums
+task4,q9,Quarantine
+task5,q10,auditd
+task5,q11,72
+task5,q12,No beacon
+task6,q13,Egress deny
+task6,q14,CBX{block_c2_egress}
+task7,q15,complete

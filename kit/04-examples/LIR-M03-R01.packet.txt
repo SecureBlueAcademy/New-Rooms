@@ -1,0 +1,54 @@
+=== ROOM PACKET START ===
+Room ID: LIR-M03-R01
+Room Type: Learning
+Topic Title: Linux Containment, Eradication and Recovery
+Slug: linux-containment-eradication-and-recovery
+Difficulty: Beginner
+Estimated Time: 35 minutes
+Prerequisites: Case: Linux Cryptojacking Incident Response
+
+Existing Catalog Awareness:
+- Linux IR: Rapid Triage and Scoping (LIR-M01-R01), Scripted Live Collection (LIR-M01-R02), Volatile Process and Memory Capture (LIR-M01-R03) and Auth, Syslog and Journald Triage for IR (LIR-M01-R04) already teach scoping, collection, memory capture and log reading. This room assumes those skills and does not reteach them; it only references "collect before you change" as a gate in the containment sequence.
+- Linux Persistence Hunting for Responders (LIR-M02-R01) and SSH Compromise Investigation and Response (LIR-M02-R02) teach finding cron, systemd and authorized_keys persistence. Here persistence is already identified; the learner practises removal order and validation, not discovery.
+- Linux Credential Harvesting and Lateral Movement Response (LIR-M02-R03) covers account pivots. This room limits account work to locking one service account and expiring its sessions.
+- Case: Linux Cryptojacking Incident Response (LIR-M02-R04) ends with the miner identified. This room is the response playbook that follows such a case; it uses a different host (web02.cbx.lab), a different C2 address and no mining pool.
+- Windows Containment, Eradication and Recovery (WIR-M03-R01) teaches the same phases on Windows (EDR isolation, GPO, AD resets). This room is the Linux counterpart: nftables egress rules, usermod/passwd locks, systemctl mask, package reinstall and auditd monitoring. No Windows tooling appears.
+- WIR-M01..M03 case rooms (ransomware, BYOVD, enterprise intrusion, AD recovery) are Windows-only and are not referenced.
+
+Learning Objectives:
+- Contain Linux hosts and accounts without destroying evidence
+- Eradicate web shells and persistence and validate removal
+- Recover services with monitoring in place
+- Document decisions for post-incident review
+
+Task Outline:
+Task 1 (Introduction): The situation on web02.cbx.lab, an Nginx/PHP host that is beaconing to 203.0.113.77 every 60 seconds. Explains the three phases and the room's single rule: evidence first, then change. Question: Type "yes".
+Task 2 (Containment Options): Compare network containment (nftables egress deny for one address, full host quarantine with a management-only allow rule), account containment (usermod -L, passwd -l, chage -E 0, killing sessions with pkill -u) and service containment (systemctl stop versus mask). Teaches why powering off or rebooting destroys volatile evidence. Table of action, evidence impact and attacker visibility. Questions (3): which command blocks only outbound traffic to one address; which action loses memory evidence; which command prevents a stopped unit from being restarted (answer: mask).
+Task 3 (Containment Order and Evidence Preservation): Ordered checklist: confirm collection hash from the handoff, snapshot or image where possible, block C2 egress, lock the abused account, then stop the malicious unit. SVG flow diagram showing the gate "collection verified" before any change. Questions (3): what must be verified before the first containment change; which step comes first after verification; how many containment steps are in the room checklist (answer in digits).
+Task 4 (Eradication): Remove the web shell, cron entry, systemd unit and dropped binary in a safe order (disable the launcher before deleting the payload), hash and quarantine each file before removal, verify package integrity with rpm -Va or debsums, reinstall modified packages from a trusted repository. Questions (3): which launcher is disabled before the payload is deleted; which tool verifies Debian package files; where removed files go before deletion (answer: quarantine).
+Task 5 (Recovery and Monitoring): Rebuild or restore decision, credential rotation, controlled service restart, auditd watch rules on the web root and cron directories, a 72 hour heightened monitoring window and success criteria (no beacon, no new files in web root). Questions (3): which subsystem watches the web root after recovery; how long is the monitoring window in hours (digits); which signal proves containment held.
+Task 6 (Practical): Launch the Linux containment decision simulator. Questions (2): which action stopped the C2 traffic while keeping the host running; enter the flag.
+Task 7 (Conclusion): Recap of contain, eradicate, recover, document, plus the decision log template for post-incident review. Question: Type "complete".
+
+Practical Concept:
+Scenario: web02.cbx.lab is beaconing to 203.0.113.77:443 from a process started by a malicious systemd unit, and a PHP web shell sits in the upload folder. The live collection package has been handed over and hashed. The learner leads containment, eradication and recovery through a decision console that sends timed injects (for example "Business asks for the site back in 20 minutes" and "SOC sees a second beacon attempt").
+Interaction: Browser-only PHP simulation with three panels: an inject feed (sorted by time), a host status board (network, accounts, services, files, evidence state) and an action deck of 12 cards. The learner drags actions into an ordered plan and clicks Execute. Each action updates the status board and a decision log. Benign decoys in every action category: blocking the CDN address 198.51.100.20 (breaks the site, no effect on beacon), locking the legitimate deploy account, stopping nginx instead of the malicious unit, deleting a real admin cron job, rebooting the host (destroys memory evidence). Feedback names the consequence of the chosen action only; it never lists the right sequence.
+Flag Reveal Logic: The flag is sealed client-side (XOR-encoded byte array decoded only after validation, never present in plain source). It unlocks when the plan's first change after "verify collection hash" is the nftables egress deny to 203.0.113.77, the host stays powered on, and evidence state remains "preserved" at the end of the run. Any reboot, power off or deletion before quarantine keeps it locked.
+
+Flag Value: CBX{block_c2_egress}
+
+Notes for Creator:
+- Learning room, 7 tasks: Introduction, four concept tasks, Practical, Conclusion. Delivery is PHP simulation (browser-only PHP plus JS, no real shells or VMs).
+- Difficulty label is Beginner. Never use "Advanced".
+- All hostnames, addresses and hashes are synthetic (cbx.lab, RFC 5737 ranges).
+- Keep scope to response actions; do not reteach log triage, memory capture or persistence discovery covered earlier in the track.
+- Pre-QA checklist:
+  - Every key event type has at least one benign decoy, so no single search solves it.
+  - Each answer has one natural form: digits for counts, no hyphenated terms, and question wording that matches the task text.
+  - Wrong-answer feedback never reveals the correct set, and distractors are plausible and similar in length.
+  - Lists are sorted by time, and briefs, times and tickets are consistent.
+
+Module: Linux Containment & Breach Cases
+Track: Linux Incident Response
+Coverage Summary: Beginner Linux response playbook that follows triage and hunting rooms: evidence-safe containment (nftables egress deny, account locks, systemctl mask), ordered eradication of web shell and persistence with quarantine and package verification, recovery with credential rotation and auditd monitoring, and a documented decision log. Practical is an inject-driven containment simulator whose flag proves the action that stopped C2 while preserving evidence.
+=== ROOM PACKET END ===

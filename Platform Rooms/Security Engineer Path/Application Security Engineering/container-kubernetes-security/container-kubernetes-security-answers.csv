@@ -1,0 +1,15 @@
+task1,q0,yes
+task2,q1,distroless
+task2,q2,image scanning
+task3,q3,runAsNonRoot
+task3,q4,readOnlyRootFilesystem
+task4,q5,Role
+task4,q6,least privilege
+task5,q7,allowed
+task5,q8,default deny
+task6,q9,Restricted
+task6,q10,Namespace
+task7,q11,Falco
+task7,q12,Secret
+task8,q13,CBX{pod_admitted}
+task9,q14,complete

@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,XML External Entity
+task2,q2,ENTITY
+task3,q3,Blind XXE
+task3,q4,Out-of-band
+task4,q5,Server-Side Request Forgery
+task4,q6,Internal network
+task5,q7,Metadata endpoint
+task5,q8,Port scanning
+task6,q9,SVG
+task6,q10,DOCX
+task7,q11,CBX{config_leaked}
+task8,q12,complete

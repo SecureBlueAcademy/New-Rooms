@@ -1,0 +1,13 @@
+task1,q0,yes
+task2,q1,policy as code
+task2,q2,Rego
+task2,q3,AWS Config
+task3,q4,continuous monitoring
+task3,q5,Center for Internet Security
+task3,q6,compliance score
+task4,q7,compliance dashboard
+task4,q8,remediation steps
+task5,q9,audit evidence
+task5,q10,tamper evident
+task6,q11,CBX{drift_remediated}
+task7,q12,complete
